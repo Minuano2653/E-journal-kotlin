@@ -26,4 +26,9 @@
         <item name="android:color">@android:color/transparent</item>
     </style>
 
+    <style name="CustomDatePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <!-- Цвет акцента (например, кнопок) -->
+        <item name="colorAccent">@color/orange</item>
+    </style>
+
 </resources>

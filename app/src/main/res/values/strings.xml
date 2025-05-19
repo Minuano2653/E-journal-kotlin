@@ -15,6 +15,8 @@
     <string name="average_grades_text_view">Средние оценки</string>
     <string name="attendance_text_view">Посещаемость</string>
     <string name="data_not_found_text">Данные не найдены</string>
+    <string name="classroom_text_view">"Кабинет: "</string>
+    <string name="update_button_text">Обновить</string>
 
     <string-array name="subjects">
         <item>Математика</item>

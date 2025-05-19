@@ -10,7 +10,7 @@ data class Lesson(
     val homework: String? = null
 ) {
     val timeRange: String
-        get() = "$startTime-$endTime"
+        get() = "$startTime - $endTime"
 
     val homeworkText: String
         get() = homework ?: "не задано"

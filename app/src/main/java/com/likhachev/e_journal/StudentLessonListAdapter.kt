@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.likhachev.e_journal.databinding.ItemStudentLessonBinding
+import com.likhachev.e_journal.domain.model.StudentLesson
 
 class StudentLessonListAdapter : ListAdapter<StudentLesson, StudentLessonListAdapter.LessonViewHolder>(LessonDiffCallback()) {
 
@@ -42,6 +43,7 @@ class StudentLessonListAdapter : ListAdapter<StudentLesson, StudentLessonListAda
             binding.lessonTimeTextView.text = lesson.time
             binding.teacherNameTextView.text = lesson.teacher
             binding.subjectNameTextView.text = lesson.subject
+            binding.classroomValueTextView.text = lesson.classroom
             binding.homeworkValueTextView.text = lesson.homework
 
             binding.homeworkValueTextView.maxLines = if (isExpanded) Integer.MAX_VALUE else 1
