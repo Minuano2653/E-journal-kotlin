@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">E-journal</string>
+    <string name="email_input_hint">Электронная почта</string>
+    <string name="password_input_hint">Пароль</string>
+    <string name="lesson_number_text_view">"%1$s УРОК: "</string>
+    <string name="class_text_view">"Класс: "</string>
+    <string name="subject_text_view">"Предмет: "</string>
+    <string name="homework_text_view">"Д/З: "</string>
+    <string name="teacher_text_view">"Учитель: "</string>
+    <string name="search_view_hint">"Найдите класс…"</string>
+    <string name="more_button_description">Ещё</string>
+    <string name="schedule_bottom_item">Расписание</string>
+    <string name="grades_bottom_item">Оценки</string>
+    <string name="performance_bottom_item">Успеваемость</string>
+    <string name="average_grades_text_view">Средние оценки</string>
+    <string name="attendance_text_view">Посещаемость</string>
+    <string name="data_not_found_text">Данные не найдены</string>
+
+    <string-array name="subjects">
+        <item>Математика</item>
+        <item>Физика</item>
+        <item>Биология</item>
+        <item>Информатика</item>
+        <item>Английский язык</item>
+        <item>Русский язык</item>
+        <item>История</item>
+        <item>Обществознание</item>
+        <item>Химия</item>
+        <item>Литература</item>
+        <item>География</item>
+        <item>Кубановедение</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_graph"
+    app:startDestination="@id/studentScheduleFragment">
+
+    <fragment
+        android:id="@+id/studentScheduleFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.student_schedule.StudentScheduleFragment"
+        android:label="fragment_student_schedule"
+        tools:layout="@layout/fragment_student_schedule" />
+    <fragment
+        android:id="@+id/studentGradesFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.student_grades.StudentGradesFragment"
+        android:label="fragment_student_grades"
+        tools:layout="@layout/fragment_student_grades" />
+    <fragment
+        android:id="@+id/studentPerformanceFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.student_performance.StudentPerformanceFragment"
+        android:label="fragment_student_performance"
+        tools:layout="@layout/fragment_student_performance" />
+</navigation>

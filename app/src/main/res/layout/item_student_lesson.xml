@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeWidth="3dp"
+    app:cardCornerRadius="18dp"
+    app:strokeColor="@color/light_orange"
+    android:backgroundTint="@color/white"
+    android:layout_marginBottom="8dp"
+    android:id="@+id/card_view"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lesson_number_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textSize="18sp"
+                android:text="@string/lesson_number_text_view"
+                android:textColor="@color/brown"
+                android:textStyle="bold"
+                tools:text="1 УРОК: " />
+
+            <TextView
+                android:id="@+id/lesson_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/orange"
+                tools:text="8:00-8:40"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/teacher_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textSize="18sp"
+                android:text="@string/teacher_text_view"
+                android:textColor="@color/brown"
+                android:textStyle="bold"
+                tools:text="Учитель: " />
+
+            <TextView
+                android:id="@+id/teacher_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/orange"
+                tools:text="Пшеничная О.А."/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/subject_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:text="@string/subject_text_view"
+                android:textSize="18sp"
+                android:textColor="@color/brown"
+                android:textStyle="bold"
+                tools:text="Предмет: " />
+
+            <TextView
+                android:id="@+id/subject_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/orange"
+                tools:text="Информатика"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/homework_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:text="@string/homework_text_view"
+                android:textSize="18sp"
+                android:textColor="@color/brown"
+                android:textStyle="bold"
+                tools:text="Д/З: " />
+
+            <TextView
+                android:id="@+id/homework_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:ellipsize="end"
+                android:textColor="@color/orange"
+                tools:text="Написать программу на Kotlin"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

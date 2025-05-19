@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="48dp"
+    android:viewportWidth="320"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,0h320v48h-320z" />
+    <!--<text
+        android:fontFamily="@font/your_font"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:text="Ваша надпись здесь"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center" />-->
+</vector>

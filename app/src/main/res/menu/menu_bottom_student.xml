@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/studentScheduleFragment"
+        android:icon="@drawable/calendar_minimalistic"
+        android:title="@string/schedule_bottom_item"
+        />
+
+    <item
+        android:id="@+id/studentGradesFragment"
+        android:icon="@drawable/ic_grades_24dp"
+        android:title="@string/grades_bottom_item"
+        />
+
+    <item
+        android:id="@+id/studentPerformanceFragment"
+        android:icon="@drawable/ic_performance_24dp"
+        android:title="@string/performance_bottom_item"
+        />
+
+</menu>

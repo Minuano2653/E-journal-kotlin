@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/who_are_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/anonymous_pro_regular"
+        android:textColor="@color/brown"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Кто Вы?" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_card_view"
+        android:layout_width="260dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="48dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="@id/who_are_text_view"
+        app:layout_constraintStart_toStartOf="@id/who_are_text_view"
+        app:layout_constraintTop_toBottomOf="@id/who_are_text_view">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/choose_role_img" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/student_button"
+        android:layout_width="270dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="345dp"
+        android:backgroundTint="@color/light_gray_button"
+        android:fontFamily="@font/anonymous_pro_regular"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/student_image_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ученик" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/teacher_button"
+        android:layout_width="270dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/light_gray_button"
+        android:fontFamily="@font/anonymous_pro_regular"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/teacher_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/student_button"
+        tools:text="Учитель" />
+
+    <ImageView
+        android:id="@+id/student_image_view"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/student_img"
+        app:layout_constraintBottom_toBottomOf="@+id/student_button"
+        app:layout_constraintEnd_toStartOf="@+id/student_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/student_button" />
+
+    <ImageView
+        android:id="@+id/teacher_image_view"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/teacher_img"
+        app:layout_constraintBottom_toBottomOf="@+id/teacher_button"
+        app:layout_constraintEnd_toStartOf="@+id/teacher_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/teacher_button" />
+
+    <!--<TextView
+        android:id="@+id/admin_login_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anonymous_pro_regular"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Технический специалист? Войти." />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

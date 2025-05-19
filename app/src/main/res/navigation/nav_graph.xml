@@ -1,0 +1,66 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.likhachev.e_journal.presentation.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+
+    <action
+        android:id="@+id/action_splashScreenFragment_to_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_splashScreenFragment_to_studentTabsFragment"
+        app:destination="@id/studentTabsFragment"
+        app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_splashScreenFragment_to_teacherTabsFragment"
+        app:destination="@id/teacherTabsFragment"
+        app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_splashScreenFragment_to_adminTabsFragment"
+        app:destination="@id/adminTabsFragment"
+        app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true" />
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.login.LoginFragment"
+        android:label="fragment_login_test"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_studentTabsFragment"
+            app:destination="@id/studentTabsFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_teacherTabsFragment"
+            app:destination="@id/teacherTabsFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminTabsFragment"
+            app:destination="@id/adminTabsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentTabsFragment"
+        android:name="com.likhachev.e_journal.presentation.StudentTabsFragment"
+        android:label="fragment_student_tabs"
+        tools:layout="@layout/fragment_student_tabs" />
+
+    <fragment
+        android:id="@+id/teacherTabsFragment"
+        android:name="com.likhachev.e_journal.presentation.TeacherTabsFragment"
+        android:label="TeacherTabsFragment" />
+
+    <fragment
+        android:id="@+id/adminTabsFragment"
+        android:name="com.likhachev.e_journal.presentation.AdminTabsFragment"
+        android:label="AdminTabsFragment" />
+</navigation>

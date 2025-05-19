@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:textColor="@color/brown"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:text="Расписание на" />
+
+        <TextView
+            android:id="@+id/date_value_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:textColor="@color/orange"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:text="26.02.2025" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/moreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/more_button_description"
+        android:padding="8dp"
+        android:src="@drawable/more_vert_24"
+        app:layout_constraintBottom_toBottomOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/linearLayout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/day_text_view"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_day_of_week"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:gravity="center"
+        android:textColor="@color/orange"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/calendar_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        tools:text="Понедельник" />
+
+    <ImageView
+        android:id="@+id/calendar_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/calendar_minimalistic"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="@+id/day_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/classes_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/day_text_view"
+        app:layout_constraintTop_toTopOf="@+id/day_text_view" />
+
+    <ImageView
+        android:id="@+id/classes_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/group"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="@+id/calendar_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/calendar_button"
+        app:layout_constraintTop_toTopOf="@+id/calendar_button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/schedule_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@id/day_text_view"
+        app:layout_constraintEnd_toEndOf="@id/classes_button"
+        app:layout_constraintTop_toBottomOf="@id/day_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_teacher_lesson"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
