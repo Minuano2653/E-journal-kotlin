@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.likhachev.e_journal.R
-import com.likhachev.e_journal.SessionManager
+import com.likhachev.e_journal.utils.SessionManager
 import com.likhachev.e_journal.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay

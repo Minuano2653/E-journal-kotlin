@@ -1,4 +1,4 @@
-package com.likhachev.e_journal
+package com.likhachev.e_journal.presentation.ui.student_schedule
 
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.ItemStudentLessonBinding
 import com.likhachev.e_journal.domain.model.StudentLesson
 
-class StudentLessonListAdapter : ListAdapter<StudentLesson, StudentLessonListAdapter.LessonViewHolder>(LessonDiffCallback()) {
+class StudentLessonListAdapter : ListAdapter<StudentLesson, StudentLessonListAdapter.LessonViewHolder>(
+    LessonDiffCallback()
+) {
 
     private val expandedItems = mutableSetOf<Int>()
 

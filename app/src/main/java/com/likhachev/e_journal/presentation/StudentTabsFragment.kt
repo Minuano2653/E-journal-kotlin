@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -12,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.transition.Visibility
 import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.FragmentStudentTabsBinding
+import com.likhachev.e_journal.presentation.viewmodel.LoginViewModel
+import com.likhachev.e_journal.presentation.viewmodel.StudentTabsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +23,8 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
+
+    private val viewModel: StudentTabsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,32 +45,24 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
 
         binding.bottomNavView.setupWithNavController(navController)
 
+        observeViewModel()
+
+        // Обновление заголовка при смене фрагмента
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            updateAppBar(destination)
-        }
-
-        // Установка начального состояния
-        binding.dateTextView.text = "Расписание на"
-        binding.dateValueTextView.visibility = View.VISIBLE
-    }
-
-    private fun updateAppBar(destination: NavDestination) {
-        when (destination.id) {
-            R.id.studentScheduleFragment -> {
-                binding.dateTextView.text = "Расписание на"
-                binding.dateValueTextView.visibility = View.VISIBLE
-            }
-            R.id.studentGradesFragment -> {
-                binding.dateTextView.text = "Оценки"
-                binding.dateValueTextView.visibility = View.GONE
-            }
-            R.id.studentPerformanceFragment -> {
-                binding.dateTextView.text = "Успеваемость"
-                binding.dateValueTextView.visibility = View.GONE
+            when (destination.id) {
+                R.id.studentScheduleFragment -> viewModel.setTitle("Расписание на")
+                R.id.studentGradesFragment -> viewModel.setTitle("Оценки")
+                R.id.studentPerformanceFragment -> viewModel.setTitle("Успеваемость")
             }
         }
     }
 
+    private fun observeViewModel() {
+        viewModel.title.observe(viewLifecycleOwner) { title ->
+            binding.dateTextView.text = title
+            binding.dateValueTextView.visibility = if (title == "Расписание на") View.VISIBLE else View.GONE
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

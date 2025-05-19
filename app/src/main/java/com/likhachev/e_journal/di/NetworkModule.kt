@@ -1,6 +1,6 @@
 package com.likhachev.e_journal.di
 
-import com.likhachev.e_journal.SessionManager
+import com.likhachev.e_journal.utils.SessionManager
 import com.likhachev.e_journal.data.remote.AuthInterceptor
 import dagger.Module
 import dagger.Provides

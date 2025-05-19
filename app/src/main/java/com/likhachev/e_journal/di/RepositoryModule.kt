@@ -1,11 +1,14 @@
 package com.likhachev.e_journal.di
 
-import com.likhachev.e_journal.SessionManager
+import com.likhachev.e_journal.utils.SessionManager
 import com.likhachev.e_journal.data.remote.AuthApi
+import com.likhachev.e_journal.data.remote.JournalApi
 import com.likhachev.e_journal.data.remote.ScheduleApi
 import com.likhachev.e_journal.data.repository.AuthRepositoryImpl
+import com.likhachev.e_journal.data.repository.JournalRepositoryImpl
 import com.likhachev.e_journal.data.repository.ScheduleRepositoryImpl
 import com.likhachev.e_journal.domain.repository.AuthRepository
+import com.likhachev.e_journal.domain.repository.JournalRepository
 import com.likhachev.e_journal.domain.repository.ScheduleRepository
 import dagger.Module
 import dagger.Provides
@@ -29,4 +32,10 @@ object RepositoryModule {
     fun provideScheduleRepository(
         api: ScheduleApi
     ): ScheduleRepository = ScheduleRepositoryImpl(api)
+
+    @Provides
+    @Singleton
+    fun provideJournalRepository(
+        api: JournalApi
+    ): JournalRepository = JournalRepositoryImpl(api)
 }

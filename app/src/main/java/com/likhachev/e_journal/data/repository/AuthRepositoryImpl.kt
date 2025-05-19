@@ -1,7 +1,7 @@
 package com.likhachev.e_journal.data.repository
 
 import com.auth0.android.jwt.JWT
-import com.likhachev.e_journal.SessionManager
+import com.likhachev.e_journal.utils.SessionManager
 import com.likhachev.e_journal.data.model.LoginRequestDto
 import com.likhachev.e_journal.data.remote.AuthApi
 import com.likhachev.e_journal.domain.model.LoginRequest

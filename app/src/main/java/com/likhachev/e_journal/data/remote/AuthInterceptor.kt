@@ -1,7 +1,7 @@
 package com.likhachev.e_journal.data.remote
 
 import android.util.Log
-import com.likhachev.e_journal.SessionManager
+import com.likhachev.e_journal.utils.SessionManager
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

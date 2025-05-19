@@ -1,4 +1,4 @@
-package com.likhachev.e_journal
+package com.likhachev.e_journal.utils
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext

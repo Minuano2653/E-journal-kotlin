@@ -15,18 +15,13 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.likhachev.e_journal.R
 import com.likhachev.e_journal.domain.model.StudentLesson
-import com.likhachev.e_journal.StudentLessonListAdapter
 import com.likhachev.e_journal.data.model.Lesson
 import com.likhachev.e_journal.databinding.FragmentStudentScheduleBinding
 import com.likhachev.e_journal.presentation.DateChangeListener
 import com.likhachev.e_journal.presentation.viewmodel.StudentScheduleViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
-import java.util.Locale
 
 @AndroidEntryPoint
 class StudentScheduleFragment: Fragment() {
@@ -77,6 +72,7 @@ class StudentScheduleFragment: Fragment() {
         binding.updateButton.setOnClickListener {
             viewModel.getScheduleForDay()
         }
+
     }
 
     private fun setupRecyclerView() {
@@ -174,31 +170,3 @@ class StudentScheduleFragment: Fragment() {
         _binding = null
     }
 }
-
-/*private fun observeViewModel() {
-    viewModel.scheduleState.observe(viewLifecycleOwner) { state ->
-        when (state) {
-            is ScheduleUiState.Loading -> {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.recyclerView.visibility = View.GONE
-                binding.notFoundLayout.visibility = View.GONE
-            }
-            is ScheduleUiState.Success -> {
-                binding.progressBar.visibility = View.GONE
-                binding.recyclerView.visibility = View.VISIBLE
-                binding.notFoundLayout.visibility = View.GONE
-
-                val studentLessons = mapLessonsToStudentLessons(state.lessons)
-                adapter.submitList(studentLessons)
-            }
-            is ScheduleUiState.Error -> {
-                binding.progressBar.visibility = View.GONE
-                binding.recyclerView.visibility = View.GONE
-                binding.notFoundLayout.visibility = View.VISIBLE
-
-                Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-            }
-            is ScheduleUiState.Idle -> Unit
-        }
-    }
-}*/
