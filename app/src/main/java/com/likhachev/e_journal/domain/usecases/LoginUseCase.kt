@@ -1,7 +1,7 @@
 package com.likhachev.e_journal.domain.usecases
 
-import com.likhachev.e_journal.domain.model.LoginRequest
-import com.likhachev.e_journal.domain.model.LoginResponse
+import com.likhachev.e_journal.data.model.LoginRequest
+import com.likhachev.e_journal.data.model.LoginResponse
 import com.likhachev.e_journal.domain.repository.AuthRepository
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">E-journal</string>
     <string name="email_input_hint">Электронная почта</string>
-    <string name="password_input_hint">Пароль</string>
+    <string name="hint_password">Пароль</string>
     <string name="lesson_number_text_view">"%1$s УРОК: "</string>
     <string name="class_text_view">"Класс: "</string>
     <string name="subject_text_view">"Предмет: "</string>
@@ -18,6 +18,12 @@
     <string name="classroom_text_view">"Кабинет: "</string>
     <string name="update_button_text">Обновить</string>
     <string name="groups_bottom_item">Группы</string>
+    <string name="hint_login">Логин</string>
+    <string name="login_button_text">Войти</string>
+    <string name="login_title_text">Вход</string>
+    <string name="homework_edit_text_hint">Введите домашнее задание</string>
+    <string name="homework_group_text">Класс: %1$s</string>
+    <string name="homework_date_text">Домашнее задание на %1$s</string>
 
     <string-array name="subjects">
         <item>Математика</item>

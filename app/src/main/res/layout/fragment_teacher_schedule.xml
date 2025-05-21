@@ -8,12 +8,69 @@
     tools:context="com.likhachev.e_journal.presentation.ui.teacher_schedule.TeacherScheduleFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/schedule_recycler_view"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_teacher_lesson"/>
+
+    <LinearLayout
+        android:id="@+id/not_found_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_teacher_lesson"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="150dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anonymous_pro_regular"
+            android:textColor="@color/brown"
+            android:textSize="16sp"
+            android:text="@string/data_not_found_text"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/update_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_orange"
+            android:text="@string/update_button_text"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:textColor="@color/brown"
+            app:cornerRadius="10dp"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/orange"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/changeDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_orange"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:tint="@null"
+        android:src="@drawable/edit_calendar_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

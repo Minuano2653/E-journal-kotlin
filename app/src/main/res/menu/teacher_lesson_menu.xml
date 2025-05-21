@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_go_to_journal"
+        android:title="Перейти к журналу" />
+    <item
+        android:id="@+id/action_set_homework"
+        android:title="Задать домашнее задание" />
+</menu>

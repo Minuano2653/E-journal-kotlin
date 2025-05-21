@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
         android:fontFamily="@font/anonymous_pro_bold"
-        android:text="Вход"
+        android:text="@string/login_title_text"
         android:textColor="@color/brown"
         android:textSize="38sp"
         app:layout_constraintStart_toStartOf="@+id/username_edit_text_layout"
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:fontFamily="@font/anonymous_pro_bold"
-            android:hint="Логин"
+            android:hint="@string/hint_login"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/brown" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +66,7 @@
             android:layout_height="match_parent"
             android:textColorHint="@color/brown"
             android:textSize="16sp"
-            android:hint="@string/password_input_hint"
+            android:hint="@string/hint_password"
             android:fontFamily="@font/anonymous_pro_bold"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +80,7 @@
         android:textColor="@color/brown"
         android:textSize="30sp"
         app:cornerRadius="10dp"
-        android:text="Войти"
+        android:text="@string/login_button_text"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="@id/password_edit_text_layout"
         app:layout_constraintEnd_toEndOf="@id/password_edit_text_layout"

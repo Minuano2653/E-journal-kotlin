@@ -1,6 +1,6 @@
 package com.likhachev.e_journal.presentation.ui.login
 
-import com.likhachev.e_journal.domain.model.LoginResponse
+import com.likhachev.e_journal.data.model.LoginResponse
 
 sealed class LoginUiState {
     object Idle : LoginUiState()

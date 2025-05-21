@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/homework_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/group_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:textSize="20sp"
+            android:text="@string/homework_group_text"
+            android:textColor="@color/brown"
+            tools:text="Класс: 11-Б" />
+
+        <TextView
+            android:id="@+id/homework_date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/homework_date_text"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
+            tools:text="Домашнее задание на 12.05.2025" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/homework_edit_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:hintEnabled="false"
+        app:boxStrokeColor="@color/light_orange"
+        app:layout_constraintTop_toBottomOf="@id/homework_title_layout"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/homework_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:fontFamily="@font/anonymous_pro_bold"
+            android:hint="@string/homework_edit_text_hint"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:indeterminateTint="@color/orange"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/homework_edit_text_layout"
+        app:layout_constraintTop_toTopOf="@id/homework_edit_text_layout"
+        app:layout_constraintEnd_toEndOf="@+id/homework_edit_text_layout"
+        android:visibility="visible"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
