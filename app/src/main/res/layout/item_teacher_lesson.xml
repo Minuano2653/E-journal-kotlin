@@ -96,6 +96,32 @@
                 tools:text="Информатика"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/classroom_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/classroom_text_view"
+                android:textColor="@color/brown"
+                />
+
+            <TextView
+                android:id="@+id/classroom_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anonymous_pro_regular"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/orange"
+                tools:text="588"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

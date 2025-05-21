@@ -1,6 +1,7 @@
 package com.likhachev.e_journal.data.remote
 
 import com.likhachev.e_journal.data.model.GradesResponse
+import com.likhachev.e_journal.data.model.PerformanceResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -11,4 +12,9 @@ interface JournalApi {
         @Path("year") year: Int,
         @Path("month") month: Int
     ): GradesResponse
+
+    @GET("journal/performance/subject/{subjectId}")
+    suspend fun getStudentPerformance(
+        @Path("subjectId") subjectId: Int
+    ): PerformanceResponse
 }

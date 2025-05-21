@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.likhachev.e_journal.presentation.StudentTabsFragment">
+    tools:context="com.likhachev.e_journal.presentation.TeacherTabsFragment">
 
     <LinearLayout
         android:id="@+id/app_bar_layout"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/date_text_view"
+            android:id="@+id/first_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anonymous_pro_bold"
@@ -26,7 +26,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/date_value_text_view"
+            android:id="@+id/last_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anonymous_pro_bold"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="@id/app_bar_layout" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment_bottom"
+        android:id="@+id/nav_host_teacher_fragment_bottom"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -57,7 +57,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
-        app:navGraph="@navigation/student_graph" />
+        app:navGraph="@navigation/teacher_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemTextColor="@color/bottom_nav_text_color_selector"
         app:itemIconTint="@color/bottom_nav_icon_color_selector"
-        app:menu="@menu/menu_bottom_student"
+        app:menu="@menu/menu_bottom_teacher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:itemActiveIndicatorStyle="@style/Theme.BottomNavigationView.ActiveIndicator"

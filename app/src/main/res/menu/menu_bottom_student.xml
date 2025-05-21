@@ -18,5 +18,4 @@
         android:icon="@drawable/ic_performance_24dp"
         android:title="@string/performance_bottom_item"
         />
-
 </menu>

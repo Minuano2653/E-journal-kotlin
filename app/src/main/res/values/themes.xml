@@ -29,6 +29,7 @@
     <style name="CustomDatePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
         <!-- Цвет акцента (например, кнопок) -->
         <item name="colorAccent">@color/orange</item>
+        <item name="fontFamily">@font/anonymous_pro_regular</item>
     </style>
 
 </resources>

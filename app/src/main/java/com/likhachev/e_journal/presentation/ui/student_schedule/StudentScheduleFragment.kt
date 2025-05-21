@@ -17,8 +17,8 @@ import com.likhachev.e_journal.R
 import com.likhachev.e_journal.domain.model.StudentLesson
 import com.likhachev.e_journal.data.model.Lesson
 import com.likhachev.e_journal.databinding.FragmentStudentScheduleBinding
-import com.likhachev.e_journal.presentation.DateChangeListener
 import com.likhachev.e_journal.presentation.viewmodel.StudentScheduleViewModel
+import com.likhachev.e_journal.utils.DateChangeListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Calendar

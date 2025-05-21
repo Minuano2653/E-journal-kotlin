@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.likhachev.e_journal.presentation.ui.teacher_groups.TeacherGroupsFragment">
     
     <LinearLayout
         android:id="@+id/titleLinearLayout"
@@ -34,30 +35,6 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/more_button_description"
-        android:src="@drawable/ic_back"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/titleLinearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/titleLinearLayout" />
-
-    <ImageView
-        android:id="@+id/moreButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/more_button_description"
-        android:src="@drawable/more_vert_24"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/titleLinearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/titleLinearLayout" />
-
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
@@ -70,14 +47,14 @@
         app:layout_constraintTop_toBottomOf="@id/titleLinearLayout"
         app:searchIcon="@drawable/ic_search"
         android:layout_marginHorizontal="16dp"
-
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/classes_recycler_view"
+        android:id="@+id/groups_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:padding="18dp"
         tools:listitem="@layout/item_class" />
 

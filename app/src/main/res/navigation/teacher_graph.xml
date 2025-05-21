@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_graph"
+    app:startDestination="@id/teacherScheduleFragment">
+    <fragment
+        android:id="@+id/teacherScheduleFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.teacher_schedule.TeacherScheduleFragment"
+        android:label="fragment_teacher_schedule"
+        tools:layout="@layout/fragment_teacher_schedule" />
+    <fragment
+        android:id="@+id/teacherGroupsFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.teacher_groups.TeacherGroupsFragment"
+        android:label="fragment_teacher_groups"
+        tools:layout="@layout/fragment_teacher_groups" />
+</navigation>

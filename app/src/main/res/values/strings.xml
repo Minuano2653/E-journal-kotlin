@@ -17,6 +17,7 @@
     <string name="data_not_found_text">Данные не найдены</string>
     <string name="classroom_text_view">"Кабинет: "</string>
     <string name="update_button_text">Обновить</string>
+    <string name="groups_bottom_item">Группы</string>
 
     <string-array name="subjects">
         <item>Математика</item>
