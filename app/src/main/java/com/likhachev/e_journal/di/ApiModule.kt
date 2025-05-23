@@ -1,6 +1,7 @@
 package com.likhachev.e_journal.di
 
 import com.likhachev.e_journal.data.remote.AuthApi
+import com.likhachev.e_journal.data.remote.HomeworkApi
 import com.likhachev.e_journal.data.remote.JournalApi
 import com.likhachev.e_journal.data.remote.ScheduleApi
 import dagger.Module
@@ -29,4 +30,9 @@ object ApiModule {
     @Singleton
     fun provideJournalApi(@Named("securedRetrofit") retrofit: Retrofit): JournalApi =
         retrofit.create(JournalApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideHomeworkApi(@Named("securedRetrofit") retrofit: Retrofit): HomeworkApi =
+        retrofit.create(HomeworkApi::class.java)
 }

@@ -11,7 +11,9 @@ import com.likhachev.e_journal.R
 import com.likhachev.e_journal.data.model.TeacherLesson
 import com.likhachev.e_journal.databinding.ItemTeacherLessonBinding
 
-class TeacherLessonListAdapter : ListAdapter<TeacherLesson, TeacherLessonListAdapter.LessonViewHolder>(
+class TeacherLessonListAdapter(
+    private val onSetHomeworkClick: (TeacherLesson) -> Unit
+) : ListAdapter<TeacherLesson, TeacherLessonListAdapter.LessonViewHolder>(
     LessonDiffCallback()
 ) {
 
@@ -25,7 +27,7 @@ class TeacherLessonListAdapter : ListAdapter<TeacherLesson, TeacherLessonListAda
         holder.bind(lesson)
     }
 
-    class LessonViewHolder(val binding: ItemTeacherLessonBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class LessonViewHolder(val binding: ItemTeacherLessonBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(lesson: TeacherLesson) {
             val context = binding.root.context
@@ -53,7 +55,7 @@ class TeacherLessonListAdapter : ListAdapter<TeacherLesson, TeacherLessonListAda
                         true
                     }
                     R.id.action_set_homework -> {
-                        // Действие для задания домашнего задания
+                        onSetHomeworkClick(lesson)
                         true
                     }
                     else -> false

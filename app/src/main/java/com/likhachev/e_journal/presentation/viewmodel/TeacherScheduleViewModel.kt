@@ -74,7 +74,7 @@ class TeacherScheduleViewModel @Inject constructor(
         return dateFormatDisplay.format(_currentDate.value)
     }
 
-    private fun getApiFormattedDate(date: Date = _currentDate.value): String {
+    fun getApiFormattedDate(date: Date = _currentDate.value): String {
         return dateFormatApi.format(date)
     }
 }

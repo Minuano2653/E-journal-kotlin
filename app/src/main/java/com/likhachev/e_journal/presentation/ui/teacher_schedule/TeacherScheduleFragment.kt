@@ -14,7 +14,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.likhachev.e_journal.R
+import com.likhachev.e_journal.data.model.TeacherLesson
 import com.likhachev.e_journal.databinding.FragmentTeacherScheduleBinding
+import com.likhachev.e_journal.presentation.ui.teacher_homework.HomeworkDialogFragment
 import com.likhachev.e_journal.presentation.viewmodel.TeacherScheduleViewModel
 import com.likhachev.e_journal.utils.DateChangeListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,11 +75,23 @@ class TeacherScheduleFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = TeacherLessonListAdapter()
+        adapter = TeacherLessonListAdapter { lesson ->
+            showHomeworkDialog(lesson, viewModel.getApiFormattedDate())
+        }
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@TeacherScheduleFragment.adapter
         }
+    }
+
+    private fun showHomeworkDialog(lesson: TeacherLesson, date: String) {
+        val dialog = HomeworkDialogFragment.newInstance(
+            groupId = lesson.group.id,
+            groupName = lesson.group.name,
+            subjectId = lesson.subject.id,
+            date = date
+        )
+        dialog.show(childFragmentManager, HomeworkDialogFragment.TAG)
     }
 
     private fun showDatePickerDialog() {
