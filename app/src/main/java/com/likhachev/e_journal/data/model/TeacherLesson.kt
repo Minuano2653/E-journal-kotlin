@@ -1,7 +1,5 @@
 package com.likhachev.e_journal.data.model
 
-import com.likhachev.e_journal.domain.model.TeacherLesson
-
 data class TeacherLesson(
     val lessonNumber: Int,
     val startTime: String,

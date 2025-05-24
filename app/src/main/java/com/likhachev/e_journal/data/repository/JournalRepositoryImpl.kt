@@ -1,6 +1,7 @@
 package com.likhachev.e_journal.data.repository
 
 import com.likhachev.e_journal.data.model.GradeItem
+import com.likhachev.e_journal.data.model.GroupJournalResponse
 import com.likhachev.e_journal.data.model.PerformanceResponse
 import com.likhachev.e_journal.data.remote.JournalApi
 import com.likhachev.e_journal.domain.repository.JournalRepository
@@ -15,5 +16,9 @@ class JournalRepositoryImpl @Inject constructor(
 
     override suspend fun getStudentPerformance(subjectId: Int): PerformanceResponse {
         return api.getStudentPerformance(subjectId)
+    }
+
+    override suspend fun getGroupGrades(groupId: String, subjectId: Int, date: String): GroupJournalResponse {
+        return api.getGroupGrades(groupId, subjectId, date)
     }
 }
