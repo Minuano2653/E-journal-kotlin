@@ -2,6 +2,7 @@ package com.likhachev.e_journal.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.likhachev.e_journal.domain.model.TeacherLesson
 import com.likhachev.e_journal.domain.usecases.GetTeacherScheduleForDayUseCase
 import com.likhachev.e_journal.presentation.ui.teacher_schedule.TeacherScheduleUiState
 import com.likhachev.e_journal.utils.Event
@@ -48,7 +49,16 @@ class TeacherScheduleViewModel @Inject constructor(
             try {
                 val formattedDate = getApiFormattedDate()
                 val lessons = getTeacherScheduleForDayUseCase(formattedDate).map {
-                    it.toDomain()
+                    TeacherLesson(
+                        number = it.lessonNumber,
+                        time = it.timeRange,
+                        groupName = it.group.name,
+                        groupId = it.group.id,
+                        subjectName = it.subject.name,
+                        subjectId = it.subject.id,
+                        classroom = it.classroom,
+                        date = getApiFormattedDate()
+                    )
                 }
                 _scheduleState.value = TeacherScheduleUiState.Success(lessons)
             } catch (e: HttpException) {

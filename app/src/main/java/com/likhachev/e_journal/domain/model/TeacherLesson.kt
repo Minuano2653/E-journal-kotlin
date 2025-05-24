@@ -11,5 +11,6 @@ data class TeacherLesson(
     val groupId: String,
     val subjectName: String,
     val subjectId: Int,
-    val classroom: String
+    val classroom: String,
+    val date: String
 ): Parcelable

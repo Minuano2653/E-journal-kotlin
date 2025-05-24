@@ -12,15 +12,4 @@ data class TeacherLesson(
 ) {
     val timeRange: String
         get() = "$startTime - $endTime"
-
-    fun toDomain(): TeacherLesson =
-        TeacherLesson(
-            number = lessonNumber,
-            time = timeRange,
-            groupName = group.name,
-            groupId = group.id,
-            subjectName = subject.name,
-            subjectId = subject.id,
-            classroom = classroom
-        )
 }

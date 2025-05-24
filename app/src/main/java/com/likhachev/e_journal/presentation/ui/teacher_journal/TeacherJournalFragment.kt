@@ -17,7 +17,7 @@ class TeacherJournalFragment: Fragment() {
     private var _binding: FragmentTeacherJournalBinding? = null
     private val binding get() = _binding!!
 
-    private val args: TeacherJournalFragmentArgs by navArgs<TeacherJournalFragmentArgs>()
+    private val args: TeacherJournalFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +43,14 @@ class TeacherJournalFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Используем переданные аргументы
+        /*// Используем переданные аргументы
         val groupId = args.groupId
         val groupName = args.groupName
         val subjectId = args.subjectId
         val subjectName = args.subjectName
 
         // Настройка UI с полученными данными
-        setupJournal(groupId, groupName, subjectId, subjectName)
+        setupJournal(groupId, groupName, subjectId, subjectName)*/
     }
 
     private fun setupJournal(groupId: String, groupName: String, subjectId: Int, subjectName: String) {

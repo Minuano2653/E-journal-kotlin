@@ -76,7 +76,7 @@ class TeacherScheduleFragment : Fragment() {
     private fun setupRecyclerView() {
         adapter = TeacherLessonListAdapter(
             onSetHomeworkClick = { lesson ->
-                showHomeworkDialog(lesson, viewModel.getApiFormattedDate())
+                showHomeworkDialog(lesson)
             },
             onGoToJournalClick = { lesson ->
                 navigateToJournal(lesson)
@@ -91,18 +91,14 @@ class TeacherScheduleFragment : Fragment() {
 
     private fun navigateToJournal(lesson: TeacherLesson) {
         val action = TeacherScheduleFragmentDirections
-            .actionTeacherScheduleFragmentToTeacherJournalFragment(
-                groupId = lesson.groupId,
-                groupName = lesson.groupName,
-                subjectId = lesson.subjectId,
-                subjectName = lesson.subjectName
-            )
+            .actionTeacherScheduleFragmentToTeacherJournalFragment(lesson)
+
         findNavController().navigate(action)
     }
 
-    private fun showHomeworkDialog(lesson: TeacherLesson, date: String) {
-        val dialog = HomeworkDialogFragment.newInstance(lesson, date)
-        dialog.show(childFragmentManager, HomeworkDialogFragment.TAG)
+    private fun showHomeworkDialog(lesson: TeacherLesson) {
+        HomeworkDialogFragment.newInstance(lesson)
+            .show(childFragmentManager, HomeworkDialogFragment.TAG)
     }
 
     private fun showDatePickerDialog() {

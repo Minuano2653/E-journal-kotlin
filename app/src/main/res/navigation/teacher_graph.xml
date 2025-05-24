@@ -29,18 +29,7 @@
         android:label="fragment_teacher_journal"
         tools:layout="@layout/fragment_teacher_journal" >
         <argument
-            android:name="groupId"
-            app:argType="string" />
-        <argument
-            android:name="groupName"
-            app:argType="string" />
-        <argument
-            android:name="subjectId"
-            app:argType="integer"
-            android:defaultValue="-1" />
-        <argument
-            android:name="subjectName"
-            app:argType="string"
-            android:defaultValue="" />
+            android:name="teacherLesson"
+            app:argType="com.likhachev.e_journal.domain.model.TeacherLesson" />
     </fragment>
 </navigation>

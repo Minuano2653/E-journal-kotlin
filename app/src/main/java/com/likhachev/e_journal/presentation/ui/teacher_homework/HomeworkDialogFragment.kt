@@ -33,13 +33,11 @@ class HomeworkDialogFragment : DialogFragment() {
     companion object {
         const val TAG = "HomeworkDialog"
         private const val ARG_LESSON = "arg_lesson"
-        private const val ARG_DATE = "arg_date"
 
-        fun newInstance(lesson: TeacherLesson, date: String): HomeworkDialogFragment {
+        fun newInstance(lesson: TeacherLesson): HomeworkDialogFragment {
             val fragment = HomeworkDialogFragment()
             val args = Bundle().apply {
                 putParcelable(ARG_LESSON, lesson)
-                putString(ARG_DATE, date)
             }
             fragment.arguments = args
             return fragment
@@ -69,7 +67,7 @@ class HomeworkDialogFragment : DialogFragment() {
 
     private fun setupUI() {
         val lesson = arguments?.getParcelable<TeacherLesson>(ARG_LESSON)
-        val date = arguments?.getString(ARG_DATE) ?: ""
+        val date = lesson?.date ?: ""
 
         val groupName = lesson?.groupName.orEmpty()
         binding.groupTextView.text = getString(R.string.homework_group_text, groupName)
@@ -86,7 +84,7 @@ class HomeworkDialogFragment : DialogFragment() {
 
     private fun initializeViewModel() {
         val lesson = arguments?.getParcelable<TeacherLesson>(ARG_LESSON)
-        val date = arguments?.getString(ARG_DATE) ?: ""
+        val date = lesson?.date ?: ""
 
         val groupId = lesson?.groupId.orEmpty()
         val subjectId = lesson?.subjectId ?: 0
