@@ -8,6 +8,7 @@
     <color name="light_orange">#FFE0C1</color>
     <color name="orange_transparent">#FFF7F0</color>
     <color name="column_color">#AAE67E32</color>
+    <color name="history_title_color">#7A7878</color>
 
     <color name="bt_text_orange">#FFA54D</color>
 </resources>
