@@ -47,7 +47,9 @@ class TeacherScheduleViewModel @Inject constructor(
             _scheduleState.value = TeacherScheduleUiState.Loading
             try {
                 val formattedDate = getApiFormattedDate()
-                val lessons = getTeacherScheduleForDayUseCase(formattedDate)
+                val lessons = getTeacherScheduleForDayUseCase(formattedDate).map {
+                    it.toDomain()
+                }
                 _scheduleState.value = TeacherScheduleUiState.Success(lessons)
             } catch (e: HttpException) {
                 val message = "Ошибка сервера: ${e.code()}"

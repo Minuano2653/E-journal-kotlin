@@ -8,10 +8,39 @@
         android:id="@+id/teacherScheduleFragment"
         android:name="com.likhachev.e_journal.presentation.ui.teacher_schedule.TeacherScheduleFragment"
         android:label="fragment_teacher_schedule"
-        tools:layout="@layout/fragment_teacher_schedule" />
+        tools:layout="@layout/fragment_teacher_schedule" >
+        <action
+            android:id="@+id/action_teacherScheduleFragment_to_teacherJournalFragment"
+            app:destination="@id/teacherJournalFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/teacherGroupsFragment"
         android:name="com.likhachev.e_journal.presentation.ui.teacher_groups.TeacherGroupsFragment"
         android:label="fragment_teacher_groups"
-        tools:layout="@layout/fragment_teacher_groups" />
+        tools:layout="@layout/fragment_teacher_groups" >
+        <action
+            android:id="@+id/action_teacherGroupsFragment_to_teacherJournalFragment"
+            app:destination="@id/teacherJournalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherJournalFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.teacher_journal.TeacherJournalFragment"
+        android:label="fragment_teacher_journal"
+        tools:layout="@layout/fragment_teacher_journal" >
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
+        <argument
+            android:name="subjectId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="subjectName"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 </navigation>

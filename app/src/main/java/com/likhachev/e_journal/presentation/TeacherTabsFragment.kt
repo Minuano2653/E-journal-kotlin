@@ -45,12 +45,52 @@ class TeacherTabsFragment: Fragment(), DateChangeListener {
 
         observeViewModel()
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
+        setupBackButton()
+
+        navController.addOnDestinationChangedListener { _, destination, arguments ->
             when (destination.id) {
-                R.id.teacherScheduleFragment -> viewModel.setTitle("Расписание на")
-                R.id.teacherGroupsFragment -> viewModel.setTitle("Ваши")
+                R.id.teacherScheduleFragment -> {
+                    viewModel.setTitle("Расписание на")
+                    showBottomNavigation()
+                    hideBackButton()
+                }
+                R.id.teacherGroupsFragment -> {
+                    viewModel.setTitle("Ваши")
+                    showBottomNavigation()
+                    hideBackButton()
+                }
+                R.id.teacherJournalFragment -> {
+                    val groupName = arguments?.getString("groupName") ?: ""
+                    viewModel.setJournalTitle(groupName)
+                    hideBottomNavigation()
+                    showBackButton()
+                }
             }
         }
+    }
+
+    private fun setupBackButton() {
+        binding.backButton.setOnClickListener {
+            navController.popBackStack()
+        }
+    }
+
+    private fun showBottomNavigation() {
+        binding.bottomNavView.visibility = View.VISIBLE
+    }
+
+    private fun hideBottomNavigation() {
+        binding.bottomNavView.visibility = View.GONE
+    }
+
+    private fun showBackButton() {
+        binding.backButton.visibility = View.VISIBLE
+        binding.moreButton.visibility = View.GONE
+    }
+
+    private fun hideBackButton() {
+        binding.backButton.visibility = View.GONE
+        binding.moreButton.visibility = View.VISIBLE
     }
 
     private fun observeViewModel() {
@@ -58,6 +98,12 @@ class TeacherTabsFragment: Fragment(), DateChangeListener {
             binding.firstTextView.text = title
             if (title == "Ваши") {
                 binding.lastTextView.text = "классы"
+            }
+        }
+
+        viewModel.subtitle.observe(viewLifecycleOwner) { subtitle ->
+            if (subtitle.isNotEmpty()) {
+                binding.lastTextView.text = subtitle
             }
         }
     }

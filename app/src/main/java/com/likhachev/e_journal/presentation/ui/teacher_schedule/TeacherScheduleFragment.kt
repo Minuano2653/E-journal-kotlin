@@ -12,10 +12,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.likhachev.e_journal.R
-import com.likhachev.e_journal.data.model.TeacherLesson
 import com.likhachev.e_journal.databinding.FragmentTeacherScheduleBinding
+import com.likhachev.e_journal.domain.model.TeacherLesson
 import com.likhachev.e_journal.presentation.ui.teacher_homework.HomeworkDialogFragment
 import com.likhachev.e_journal.presentation.viewmodel.TeacherScheduleViewModel
 import com.likhachev.e_journal.utils.DateChangeListener
@@ -63,34 +64,44 @@ class TeacherScheduleFragment : Fragment() {
     }
 
     private fun setupButtons() {
-        // Настройка кнопки выбора даты
         binding.changeDateButton.setOnClickListener {
             showDatePickerDialog()
         }
 
-        // Добавление обработчика для кнопки обновления
         binding.updateButton.setOnClickListener {
             viewModel.getScheduleForDay()
         }
     }
 
     private fun setupRecyclerView() {
-        adapter = TeacherLessonListAdapter { lesson ->
-            showHomeworkDialog(lesson, viewModel.getApiFormattedDate())
-        }
+        adapter = TeacherLessonListAdapter(
+            onSetHomeworkClick = { lesson ->
+                showHomeworkDialog(lesson, viewModel.getApiFormattedDate())
+            },
+            onGoToJournalClick = { lesson ->
+                navigateToJournal(lesson)
+            }
+        )
+
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@TeacherScheduleFragment.adapter
         }
     }
 
+    private fun navigateToJournal(lesson: TeacherLesson) {
+        val action = TeacherScheduleFragmentDirections
+            .actionTeacherScheduleFragmentToTeacherJournalFragment(
+                groupId = lesson.groupId,
+                groupName = lesson.groupName,
+                subjectId = lesson.subjectId,
+                subjectName = lesson.subjectName
+            )
+        findNavController().navigate(action)
+    }
+
     private fun showHomeworkDialog(lesson: TeacherLesson, date: String) {
-        val dialog = HomeworkDialogFragment.newInstance(
-            groupId = lesson.group.id,
-            groupName = lesson.group.name,
-            subjectId = lesson.subject.id,
-            date = date
-        )
+        val dialog = HomeworkDialogFragment.newInstance(lesson, date)
         dialog.show(childFragmentManager, HomeworkDialogFragment.TAG)
     }
 

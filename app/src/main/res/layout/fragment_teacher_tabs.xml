@@ -17,13 +17,15 @@
 
         <TextView
             android:id="@+id/first_text_view"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anonymous_pro_bold"
             android:textColor="@color/brown"
             android:textSize="26sp"
+            android:textStyle="bold"
             android:text="Расписание на"
-            android:textStyle="bold" />
+             />
 
         <TextView
             android:id="@+id/last_text_view"
@@ -37,13 +39,39 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/moreButton"
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/back_button_description"
+        android:padding="8dp"
+        android:src="@drawable/arrow_back_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/app_bar_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/app_bar_layout" />
+
+    <ImageButton
+        android:id="@+id/more_Button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="@string/more_button_description"
         android:padding="8dp"
         android:src="@drawable/more_vert_24"
+        app:layout_constraintBottom_toBottomOf="@id/app_bar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/app_bar_layout" />
+
+    <ImageButton
+        android:id="@+id/change_date_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/more_button_description"
+        android:padding="8dp"
+        android:src="@drawable/edit_calendar_24"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/app_bar_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/app_bar_layout" />

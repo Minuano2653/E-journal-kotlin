@@ -1,6 +1,7 @@
 package com.likhachev.e_journal.presentation.ui.teacher_schedule
 
-import com.likhachev.e_journal.data.model.TeacherLesson
+import com.likhachev.e_journal.domain.model.TeacherLesson
+
 
 sealed class TeacherScheduleUiState {
     object Idle : TeacherScheduleUiState()

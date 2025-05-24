@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.likhachev.e_journal.R
-import com.likhachev.e_journal.data.model.TeacherLesson
 import com.likhachev.e_journal.databinding.ItemTeacherLessonBinding
+import com.likhachev.e_journal.domain.model.TeacherLesson
 
 class TeacherLessonListAdapter(
-    private val onSetHomeworkClick: (TeacherLesson) -> Unit
+    private val onSetHomeworkClick: (TeacherLesson) -> Unit,
+    private val onGoToJournalClick : (TeacherLesson) -> Unit
 ) : ListAdapter<TeacherLesson, TeacherLessonListAdapter.LessonViewHolder>(
     LessonDiffCallback()
 ) {
@@ -32,10 +33,10 @@ class TeacherLessonListAdapter(
         fun bind(lesson: TeacherLesson) {
             val context = binding.root.context
 
-            binding.lessonNumberTextView.text = context.getString(R.string.lesson_number_text_view, lesson.lessonNumber.toString())
-            binding.lessonTimeTextView.text = lesson.timeRange
-            binding.classNameTextView.text = lesson.group.name
-            binding.subjectNameTextView.text = lesson.subject.name
+            binding.lessonNumberTextView.text = context.getString(R.string.lesson_number_text_view, lesson.number.toString())
+            binding.lessonTimeTextView.text = lesson.time
+            binding.classNameTextView.text = lesson.groupName
+            binding.subjectNameTextView.text = lesson.subjectName
             binding.classroomValueTextView.text = lesson.classroom
 
             binding.root.setOnClickListener { view ->
@@ -50,8 +51,7 @@ class TeacherLessonListAdapter(
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.action_go_to_journal -> {
-                        // Действие для перехода к журналу
-                        // В будущем можно будет использовать lesson.group.id и lesson.subject.id
+                        onGoToJournalClick(lesson)
                         true
                     }
                     R.id.action_set_homework -> {
@@ -68,9 +68,9 @@ class TeacherLessonListAdapter(
 
     class LessonDiffCallback : DiffUtil.ItemCallback<TeacherLesson>() {
         override fun areItemsTheSame(oldItem: TeacherLesson, newItem: TeacherLesson): Boolean {
-            return oldItem.lessonNumber == newItem.lessonNumber &&
-                    oldItem.group.id == newItem.group.id &&
-                    oldItem.subject.id == newItem.subject.id
+            return oldItem.number == newItem.number &&
+                    oldItem.groupId == newItem.groupId &&
+                    oldItem.subjectId == newItem.subjectId
         }
 
         override fun areContentsTheSame(oldItem: TeacherLesson, newItem: TeacherLesson): Boolean {

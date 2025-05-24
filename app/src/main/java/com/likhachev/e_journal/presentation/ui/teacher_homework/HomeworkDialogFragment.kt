@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.DialogFragmentHomeworkBinding
+import com.likhachev.e_journal.domain.model.TeacherLesson
 import com.likhachev.e_journal.presentation.viewmodel.HomeworkViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -31,17 +32,13 @@ class HomeworkDialogFragment : DialogFragment() {
 
     companion object {
         const val TAG = "HomeworkDialog"
-        private const val ARG_GROUP_ID = "group_id"
-        private const val ARG_GROUP_NAME = "group_name"
-        private const val ARG_SUBJECT_ID = "subject_id"
-        private const val ARG_DATE = "date"
+        private const val ARG_LESSON = "arg_lesson"
+        private const val ARG_DATE = "arg_date"
 
-        fun newInstance(groupId: String, groupName: String, subjectId: Int, date: String): HomeworkDialogFragment {
+        fun newInstance(lesson: TeacherLesson, date: String): HomeworkDialogFragment {
             val fragment = HomeworkDialogFragment()
             val args = Bundle().apply {
-                putString(ARG_GROUP_ID, groupId)
-                putString(ARG_GROUP_NAME, groupName)
-                putInt(ARG_SUBJECT_ID, subjectId)
+                putParcelable(ARG_LESSON, lesson)
                 putString(ARG_DATE, date)
             }
             fragment.arguments = args
@@ -71,19 +68,16 @@ class HomeworkDialogFragment : DialogFragment() {
     }
 
     private fun setupUI() {
-        val groupName = arguments?.getString(ARG_GROUP_NAME) ?: ""
+        val lesson = arguments?.getParcelable<TeacherLesson>(ARG_LESSON)
         val date = arguments?.getString(ARG_DATE) ?: ""
 
+        val groupName = lesson?.groupName.orEmpty()
         binding.groupTextView.text = getString(R.string.homework_group_text, groupName)
 
         try {
             val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
             val parsedDate = inputFormat.parse(date)
-            val formattedDate = if (parsedDate != null) {
-                dateFormatDisplay.format(parsedDate)
-            } else {
-                date
-            }
+            val formattedDate = parsedDate?.let { dateFormatDisplay.format(it) } ?: date
             binding.homeworkDateTextView.text = getString(R.string.homework_date_text, formattedDate)
         } catch (e: Exception) {
             binding.homeworkDateTextView.text = getString(R.string.homework_date_text, date)
@@ -91,9 +85,11 @@ class HomeworkDialogFragment : DialogFragment() {
     }
 
     private fun initializeViewModel() {
-        val groupId = arguments?.getString(ARG_GROUP_ID) ?: ""
-        val subjectId = arguments?.getInt(ARG_SUBJECT_ID) ?: 0
+        val lesson = arguments?.getParcelable<TeacherLesson>(ARG_LESSON)
         val date = arguments?.getString(ARG_DATE) ?: ""
+
+        val groupId = lesson?.groupId.orEmpty()
+        val subjectId = lesson?.subjectId ?: 0
 
         viewModel.initialize(groupId, subjectId, date)
     }

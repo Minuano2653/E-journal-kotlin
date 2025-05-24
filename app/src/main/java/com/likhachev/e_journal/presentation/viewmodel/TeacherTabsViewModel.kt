@@ -7,11 +7,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class TeacherTabsViewModel @Inject constructor(): ViewModel() {
-    private val _title = MutableLiveData("Расписание на")
-    val title: LiveData<String> get() = _title
+class TeacherTabsViewModel @Inject constructor() : ViewModel() {
 
-    fun setTitle(value: String) {
-        _title.value = value
+    private val _title = MutableLiveData<String>()
+    val title: LiveData<String> = _title
+
+    private val _subtitle = MutableLiveData<String>()
+    val subtitle: LiveData<String> = _subtitle
+
+    fun setTitle(title: String) {
+        _title.value = title
+        _subtitle.value = "" // Очищаем подзаголовок при смене основного заголовка
+    }
+
+    fun setJournalTitle(groupName: String) {
+        _title.value = "Журнал"
+        _subtitle.value = groupName
     }
 }

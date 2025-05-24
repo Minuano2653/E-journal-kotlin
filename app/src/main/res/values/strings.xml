@@ -24,6 +24,7 @@
     <string name="homework_edit_text_hint">Введите домашнее задание</string>
     <string name="homework_group_text">Класс: %1$s</string>
     <string name="homework_date_text">Домашнее задание на %1$s</string>
+    <string name="back_button_description">Назад</string>
 
     <string-array name="subjects">
         <item>Математика</item>

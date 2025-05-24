@@ -1,11 +1,15 @@
 package com.likhachev.e_journal.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class TeacherLesson(
     val number: Int,
     val time: String,
-    val className: String,
-    val classId: String,
-    val subject: String,
-    val subjectId: String,
+    val groupName: String,
+    val groupId: String,
+    val subjectName: String,
+    val subjectId: Int,
     val classroom: String
-)
+): Parcelable

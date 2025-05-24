@@ -1,5 +1,7 @@
 package com.likhachev.e_journal.data.model
 
+import com.likhachev.e_journal.domain.model.TeacherLesson
+
 data class TeacherLesson(
     val lessonNumber: Int,
     val startTime: String,
@@ -10,4 +12,15 @@ data class TeacherLesson(
 ) {
     val timeRange: String
         get() = "$startTime - $endTime"
+
+    fun toDomain(): TeacherLesson =
+        TeacherLesson(
+            number = lessonNumber,
+            time = timeRange,
+            groupName = group.name,
+            groupId = group.id,
+            subjectName = subject.name,
+            subjectId = subject.id,
+            classroom = classroom
+        )
 }
