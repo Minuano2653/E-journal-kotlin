@@ -15,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.likhachev.e_journal.R
+import com.likhachev.e_journal.domain.model.TeacherGroup
 import com.likhachev.e_journal.databinding.FragmentTeacherScheduleBinding
 import com.likhachev.e_journal.domain.model.TeacherLesson
 import com.likhachev.e_journal.presentation.ui.teacher_homework.HomeworkDialogFragment
@@ -79,7 +80,9 @@ class TeacherScheduleFragment : Fragment() {
                 showHomeworkDialog(lesson)
             },
             onGoToJournalClick = { lesson ->
-                navigateToJournal(lesson)
+                navigateToJournal(
+                    TeacherGroup(lesson.groupId, lesson.subjectId, lesson.groupName, lesson.date)
+                )
             }
         )
 
@@ -89,7 +92,7 @@ class TeacherScheduleFragment : Fragment() {
         }
     }
 
-    private fun navigateToJournal(lesson: TeacherLesson) {
+    private fun navigateToJournal(lesson: TeacherGroup) {
         val action = TeacherScheduleFragmentDirections
             .actionTeacherScheduleFragmentToTeacherJournalFragment(lesson)
 
@@ -146,7 +149,7 @@ class TeacherScheduleFragment : Fragment() {
                             binding.recyclerView.visibility = View.GONE
                             binding.notFoundLayout.visibility = View.VISIBLE
                         }
-                        is TeacherScheduleUiState.Idle -> Unit
+                        is TeacherScheduleUiState.Idle -> {Unit}
                     }
                 }
             }

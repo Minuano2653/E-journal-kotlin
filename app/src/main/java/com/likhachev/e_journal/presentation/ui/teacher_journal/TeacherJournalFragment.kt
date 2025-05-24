@@ -37,7 +37,6 @@ class TeacherJournalFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Обработка системной кнопки "назад"
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()
@@ -63,10 +62,8 @@ class TeacherJournalFragment: Fragment() {
         setupFab()
         observeViewModel()
 
-        // Инициализируем ViewModel с переданными параметрами
-        val lesson = args.teacherLesson
-        Log.d("DATE", lesson.date)
-        viewModel.initialize(lesson.groupId, lesson.subjectId, lesson.date)
+        val group = args.teacherGroup
+        viewModel.initialize(group.groupId, group.subjectId, group.date)
     }
 
     private fun setupRecyclerView() {
@@ -145,12 +142,32 @@ class TeacherJournalFragment: Fragment() {
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.successEvent.collect { event ->
+                    event.getContentIfNotHandled()?.let { message ->
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
     }
 
     private fun onStudentClick(student: StudentJournalEntry) {
-        // Здесь можно добавить логику для редактирования оценки/посещаемости
-        // Например, открыть диалог для ввода оценки
-        Toast.makeText(requireContext(), "Клик по студенту: ${student.studentName}", Toast.LENGTH_SHORT).show()
+        val currentGrade = when {
+            student.grade != null -> student.grade.toString()
+            student.attendanceStatus != null -> student.attendanceStatus
+            else -> null
+        }
+
+        GradeSelectionDialog.show(
+            context = requireContext(),
+            currentGrade = currentGrade,
+            onGradeSelected = { selectedGrade ->
+                viewModel.updateStudentGrade(student, selectedGrade)
+            }
+        )
     }
 
     override fun onDestroyView() {

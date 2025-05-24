@@ -1,8 +1,12 @@
 package com.likhachev.e_journal.data.repository
 
+import com.likhachev.e_journal.data.model.CreateJournalEntryRequest
+import com.likhachev.e_journal.data.model.CreateJournalEntryResponse
 import com.likhachev.e_journal.data.model.GradeItem
 import com.likhachev.e_journal.data.model.GroupJournalResponse
 import com.likhachev.e_journal.data.model.PerformanceResponse
+import com.likhachev.e_journal.data.model.UpdateJournalEntryRequest
+import com.likhachev.e_journal.data.model.UpdateJournalEntryResponse
 import com.likhachev.e_journal.data.remote.JournalApi
 import com.likhachev.e_journal.domain.repository.JournalRepository
 import javax.inject.Inject
@@ -20,5 +24,13 @@ class JournalRepositoryImpl @Inject constructor(
 
     override suspend fun getGroupGrades(groupId: String, subjectId: Int, date: String): GroupJournalResponse {
         return api.getGroupGrades(groupId, subjectId, date)
+    }
+
+    override suspend fun createJournalEntry(studentId: String, subjectId: Int, date: String, value: String): CreateJournalEntryResponse {
+        return api.createJournalEntry(CreateJournalEntryRequest(studentId, subjectId, date, value))
+    }
+
+    override suspend fun updateJournalEntry(journalEntryId: Int, value: String): UpdateJournalEntryResponse {
+        return api.updateJournalEntry(UpdateJournalEntryRequest(journalEntryId, value))
     }
 }

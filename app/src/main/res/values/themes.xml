@@ -32,4 +32,11 @@
         <item name="fontFamily">@font/anonymous_pro_regular</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="android:textColorPrimary">@color/brown</item>
+        <item name="android:backgroundTint">@color/light_orange</item>
+    </style>
+
 </resources>

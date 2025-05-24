@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.FragmentTeacherTabsBinding
+import com.likhachev.e_journal.domain.model.TeacherGroup
 import com.likhachev.e_journal.domain.model.TeacherLesson
 import com.likhachev.e_journal.presentation.viewmodel.TeacherTabsViewModel
 import com.likhachev.e_journal.utils.DateChangeListener
@@ -61,7 +62,7 @@ class TeacherTabsFragment: Fragment(), DateChangeListener {
                     hideBackButton()
                 }
                 R.id.teacherJournalFragment -> {
-                    val lesson = arguments?.getParcelable<TeacherLesson>("teacherLesson")
+                    val lesson = arguments?.getParcelable<TeacherGroup>("teacherGroup")
                     val groupName = lesson?.groupName ?: ""
                     viewModel.setJournalTitle(groupName)
                     hideBottomNavigation()
