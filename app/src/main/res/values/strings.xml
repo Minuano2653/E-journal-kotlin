@@ -18,6 +18,8 @@
     <string name="classroom_text_view">"Кабинет: "</string>
     <string name="update_button_text">Обновить</string>
     <string name="groups_bottom_item">Классы</string>
+    <string name="teachers_bottom_item">Учителя</string>
+    <string name="students_bottom_item">Учащиеся</string>
     <string name="hint_login">Логин</string>
     <string name="login_button_text">Войти</string>
     <string name="login_title_text">Вход</string>
@@ -26,6 +28,7 @@
     <string name="homework_date_text">Домашнее задание на %1$s</string>
     <string name="back_button_description">Назад</string>
     <string name="change_date_description">Изменить дату</string>
+    <string name="save_button_text">Сохранить</string>
 
     <string-array name="subjects">
         <item>Математика</item>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_graph"
+    app:startDestination="@id/adminGroupsFragment">
+
+    <fragment
+        android:id="@+id/adminGroupsFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.admin_groups.AdminGroupsFragment"
+        android:label="fragment_admin_groups"
+        tools:layout="@layout/fragment_admin_groups" />
+    <fragment
+        android:id="@+id/adminTeachersFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.admin_teachers.AdminTeachersFragment"
+        android:label="fragment_admin_teachers"
+        tools:layout="@layout/fragment_admin_teachers" />
+    <fragment
+        android:id="@+id/adminStudentsFragment"
+        android:name="com.likhachev.e_journal.presentation.ui.admin_students.AdminStudentsFragment"
+        android:label="fragment_admin_students"
+        tools:layout="@layout/fragment_admin_students" />
+</navigation>

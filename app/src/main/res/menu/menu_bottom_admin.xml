@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/adminGroupsFragment"
+        android:icon="@drawable/group"
+        android:title="@string/groups_bottom_item"
+        />
+
+    <item
+        android:id="@+id/adminTeachersFragment"
+        android:icon="@drawable/ic_teacher_24"
+        android:title="@string/teachers_bottom_item"
+        />
+
+    <item
+        android:id="@+id/adminStudentsFragment"
+        android:icon="@drawable/ic_student_24"
+        android:title="@string/students_bottom_item"
+        />
+</menu>
