@@ -4,16 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.FragmentStudentTabsBinding
 import com.likhachev.e_journal.presentation.viewmodel.StudentTabsViewModel
 import com.likhachev.e_journal.utils.DateChangeListener
+import com.likhachev.e_journal.utils.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class StudentTabsFragment: Fragment(), DateChangeListener {
@@ -21,6 +25,8 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
+
+    @Inject lateinit var sessionManager: SessionManager
 
     private val viewModel: StudentTabsViewModel by viewModels()
 
@@ -44,6 +50,7 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
         binding.bottomNavView.setupWithNavController(navController)
 
         observeViewModel()
+        setupMoreButton()
 
         // Обновление заголовка при смене фрагмента
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -53,6 +60,42 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
                 R.id.studentPerformanceFragment -> viewModel.setTitle("Успеваемость")
             }
         }
+    }
+
+    private fun setupMoreButton() {
+        binding.moreButton.setOnClickListener { view ->
+            showPopupMenu(view)
+        }
+    }
+
+    private fun showPopupMenu(view: View) {
+        val popupMenu = PopupMenu(requireContext(), view)
+        popupMenu.menuInflater.inflate(R.menu.menu_more, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_change_theme -> {
+                    // TODO: Реализовать смену темы
+                    // Например, можно открыть диалог выбора темы или переключить между светлой/темной
+                    true
+                }
+                R.id.menu_logout -> {
+                    logout()
+                    true
+                }
+                else -> false
+            }
+        }
+
+        popupMenu.show()
+    }
+
+    private fun logout() {
+        // Очищаем сессию
+        sessionManager.clearSession()
+
+        // Переходим на экран авторизации
+        findNavController().navigate(R.id.action_studentTabsFragment_to_loginFragment)
     }
 
     private fun observeViewModel() {
