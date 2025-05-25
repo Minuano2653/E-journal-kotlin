@@ -39,13 +39,21 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_studentTabsFragment"
-            app:destination="@id/studentTabsFragment" />
+            app:destination="@id/studentTabsFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_loginFragment_to_teacherTabsFragment"
-            app:destination="@id/teacherTabsFragment" />
+            app:destination="@id/teacherTabsFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_loginFragment_to_adminTabsFragment"
-            app:destination="@id/adminTabsFragment" />
+            app:destination="@id/adminTabsFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
