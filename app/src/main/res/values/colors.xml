@@ -11,4 +11,6 @@
     <color name="history_title_color">#7A7878</color>
 
     <color name="bt_text_orange">#FFA54D</color>
+
+    <color name="bottom_color">#FFFFFFFF</color>
 </resources>
