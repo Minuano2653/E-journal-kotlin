@@ -1,5 +1,6 @@
 package com.likhachev.e_journal.data.remote
 
+import com.likhachev.e_journal.data.model.AdminGroupDto
 import com.likhachev.e_journal.data.model.CreateGroupRequest
 import com.likhachev.e_journal.data.model.CreateGroupResponse
 import com.likhachev.e_journal.data.model.Group
@@ -9,7 +10,7 @@ import retrofit2.http.POST
 
 interface AdminGroupsApi {
     @GET("groups/admin")
-    suspend fun getAllGroups(): List<Group>
+    suspend fun getAllGroups(): List<AdminGroupDto>
 
     @POST("groups")
     suspend fun createGroup(@Body request: CreateGroupRequest): CreateGroupResponse

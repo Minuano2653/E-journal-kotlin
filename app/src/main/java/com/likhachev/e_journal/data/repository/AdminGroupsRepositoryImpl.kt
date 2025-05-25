@@ -1,5 +1,6 @@
 package com.likhachev.e_journal.data.repository
 
+import com.likhachev.e_journal.data.model.AdminGroupDto
 import com.likhachev.e_journal.data.model.CreateGroupRequest
 import com.likhachev.e_journal.data.model.CreateGroupResponse
 import com.likhachev.e_journal.data.model.Group
@@ -11,7 +12,7 @@ class AdminGroupsRepositoryImpl @Inject constructor(
     private val api: AdminGroupsApi
 ) : AdminGroupsRepository {
 
-    override suspend fun getAllGroups(): List<Group> {
+    override suspend fun getAllGroups(): List<AdminGroupDto> {
         return api.getAllGroups()
     }
 

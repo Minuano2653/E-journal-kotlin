@@ -1,6 +1,7 @@
 package com.likhachev.e_journal.di
 
 import com.likhachev.e_journal.data.remote.AdminGroupsApi
+import com.likhachev.e_journal.data.remote.AdminStudentsApi
 import com.likhachev.e_journal.utils.SessionManager
 import com.likhachev.e_journal.data.remote.AuthApi
 import com.likhachev.e_journal.data.remote.GroupsApi
@@ -8,12 +9,14 @@ import com.likhachev.e_journal.data.remote.HomeworkApi
 import com.likhachev.e_journal.data.remote.JournalApi
 import com.likhachev.e_journal.data.remote.ScheduleApi
 import com.likhachev.e_journal.data.repository.AdminGroupsRepositoryImpl
+import com.likhachev.e_journal.data.repository.AdminStudentsRepositoryImpl
 import com.likhachev.e_journal.data.repository.AuthRepositoryImpl
 import com.likhachev.e_journal.data.repository.GroupsRepositoryImpl
 import com.likhachev.e_journal.data.repository.HomeworkRepositoryImpl
 import com.likhachev.e_journal.data.repository.JournalRepositoryImpl
 import com.likhachev.e_journal.data.repository.ScheduleRepositoryImpl
 import com.likhachev.e_journal.domain.repository.AdminGroupsRepository
+import com.likhachev.e_journal.domain.repository.AdminStudentsRepository
 import com.likhachev.e_journal.domain.repository.AuthRepository
 import com.likhachev.e_journal.domain.repository.GroupsRepository
 import com.likhachev.e_journal.domain.repository.HomeworkRepository
@@ -65,4 +68,10 @@ object RepositoryModule {
     fun provideAdminGroupsRepository(
         api: AdminGroupsApi
     ): AdminGroupsRepository = AdminGroupsRepositoryImpl(api)
+
+    @Provides
+    @Singleton
+    fun provideAdminStudentsRepository(
+        api: AdminStudentsApi
+    ): AdminStudentsRepository = AdminStudentsRepositoryImpl(api)
 }
