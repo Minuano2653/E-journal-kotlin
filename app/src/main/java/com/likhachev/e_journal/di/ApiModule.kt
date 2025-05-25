@@ -1,5 +1,6 @@
 package com.likhachev.e_journal.di
 
+import com.likhachev.e_journal.data.remote.AdminGroupsApi
 import com.likhachev.e_journal.data.remote.AuthApi
 import com.likhachev.e_journal.data.remote.GroupsApi
 import com.likhachev.e_journal.data.remote.HomeworkApi
@@ -41,4 +42,9 @@ object ApiModule {
     @Singleton
     fun provideGroupsApi(@Named("securedRetrofit") retrofit: Retrofit): GroupsApi =
         retrofit.create(GroupsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideAdminGroupsApi(@Named("securedRetrofit") retrofit: Retrofit): AdminGroupsApi =
+        retrofit.create(AdminGroupsApi::class.java)
 }
