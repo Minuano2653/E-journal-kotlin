@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_change_theme"
+        android:title="Сменить тему"
+         />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Выйти"
+         />
+</menu>

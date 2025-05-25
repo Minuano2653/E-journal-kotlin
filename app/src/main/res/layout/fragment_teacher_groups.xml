@@ -17,6 +17,7 @@
         app:queryHint="@string/search_view_hint"
         app:searchIcon="@drawable/ic_search"
         android:layout_marginHorizontal="10dp"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
