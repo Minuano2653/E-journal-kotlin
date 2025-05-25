@@ -100,6 +100,10 @@ class TeacherGroupsFragment : Fragment() {
         binding.clearHistoryButton.setOnClickListener {
             viewModel.clearSearchHistory()
         }
+
+        binding.updateButton.setOnClickListener {
+            viewModel.loadGroups()
+        }
     }
 
     private fun observeViewModel() {
@@ -108,16 +112,16 @@ class TeacherGroupsFragment : Fragment() {
                 viewModel.groupsState.collect { state ->
                     when (state) {
                         is TeacherGroupsUiState.Loading -> {
-                            // Показываем прогрессбар если необходимо
+                            showLoading()
                         }
                         is TeacherGroupsUiState.Success -> {
-                            groupsAdapter.submitList(state.groups)
+                            showSuccess(state.groups)
                         }
                         is TeacherGroupsUiState.Error -> {
-                            // Обрабатываем ошибку
+                            showError()
                         }
                         is TeacherGroupsUiState.Idle -> {
-                            // Idle состояние
+                            hideAllStates()
                         }
                     }
                 }
@@ -175,5 +179,38 @@ class TeacherGroupsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.groupsRecyclerView.visibility = View.GONE
+        binding.notFoundLayout.visibility = View.GONE
+    }
+
+    private fun showSuccess(groups: List<TeacherGroupDto>) {
+        binding.progressBar.visibility = View.GONE
+
+        if (groups.isEmpty()) {
+            // Показываем "не найдено" если список пустой (может быть из-за поиска или отсутствия данных)
+            binding.groupsRecyclerView.visibility = View.GONE
+            binding.notFoundLayout.visibility = View.VISIBLE
+        } else {
+            // Показываем список групп
+            binding.groupsRecyclerView.visibility = View.VISIBLE
+            binding.notFoundLayout.visibility = View.GONE
+            groupsAdapter.submitList(groups)
+        }
+    }
+
+    private fun showError() {
+        binding.progressBar.visibility = View.GONE
+        binding.groupsRecyclerView.visibility = View.GONE
+        binding.notFoundLayout.visibility = View.VISIBLE
+    }
+
+    private fun hideAllStates() {
+        binding.progressBar.visibility = View.GONE
+        binding.groupsRecyclerView.visibility = View.GONE
+        binding.notFoundLayout.visibility = View.GONE
     }
 }

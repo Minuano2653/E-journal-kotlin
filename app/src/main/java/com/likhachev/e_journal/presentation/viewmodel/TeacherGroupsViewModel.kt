@@ -55,7 +55,7 @@ class TeacherGroupsViewModel @Inject constructor(
     private fun setupSearchDebounce() {
         viewModelScope.launch {
             _searchQuery
-                .debounce(1000) // 300ms debounce
+                .debounce(1000)
                 .distinctUntilChanged()
                 .collect { query ->
                     filterGroups(query)
@@ -69,7 +69,7 @@ class TeacherGroupsViewModel @Inject constructor(
             try {
                 val groups = getTeacherGroupsUseCase(null)
                 allGroups = groups
-                _groupsState.value = TeacherGroupsUiState.Success(groups)
+                filterGroups(_searchQuery.value)
             } catch (e: HttpException) {
                 val message = when (e.code()) {
                     404 -> "Группы не найдены"
@@ -94,7 +94,6 @@ class TeacherGroupsViewModel @Inject constructor(
     }
 
     fun onSearchSubmitted(query: String) {
-        // Сохраняем в историю только при подтверждении поиска
         if (query.isNotEmpty()) {
             searchHistoryManager.addSearchQuery(query)
             loadSearchHistory()
@@ -117,10 +116,8 @@ class TeacherGroupsViewModel @Inject constructor(
 
     private fun filterGroups(query: String) {
         if (query.isEmpty()) {
-            // Если поисковый запрос пустой, показываем все группы
             _groupsState.value = TeacherGroupsUiState.Success(allGroups)
         } else {
-            // Фильтруем группы по groupName (регистронезависимый поиск)
             val filteredGroups = allGroups.filter { group ->
                 group.groupName.contains(query, ignoreCase = true)
             }
