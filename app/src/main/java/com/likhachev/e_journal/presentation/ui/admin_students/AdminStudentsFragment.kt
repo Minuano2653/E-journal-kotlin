@@ -118,7 +118,6 @@ class AdminStudentsFragment : Fragment() {
                         }
                         is AdminStudentsUiState.GroupsLoaded -> {
                             hideLoading()
-                            // Группы загружены, но диалог показываем только по клику
                         }
                         is AdminStudentsUiState.Success -> {
                             hideLoading()

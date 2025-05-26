@@ -2,6 +2,7 @@ package com.likhachev.e_journal.di
 
 import com.likhachev.e_journal.data.remote.AdminGroupsApi
 import com.likhachev.e_journal.data.remote.AdminStudentsApi
+import com.likhachev.e_journal.data.remote.AdminTeachersApi
 import com.likhachev.e_journal.data.remote.AuthApi
 import com.likhachev.e_journal.data.remote.GroupsApi
 import com.likhachev.e_journal.data.remote.HomeworkApi
@@ -53,4 +54,9 @@ object ApiModule {
     @Singleton
     fun provideAdminStudentsApi(@Named("securedRetrofit") retrofit: Retrofit): AdminStudentsApi =
         retrofit.create(AdminStudentsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideAdminTeachersApi(@Named("securedRetrofit") retrofit: Retrofit): AdminTeachersApi =
+        retrofit.create(AdminTeachersApi::class.java)
 }

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background_color"
     tools:context="com.likhachev.e_journal.presentation.ui.login.LoginFragment">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_marginTop="220dp"
         android:fontFamily="@font/anonymous_pro_bold"
         android:text="@string/login_title_text"
-        android:textColor="@color/brown"
+        android:textColor="@color/title_text_color"
         android:textSize="38sp"
         app:layout_constraintStart_toStartOf="@+id/username_edit_text_layout"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,12 +27,11 @@
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
-        app:boxStrokeColor="@color/light_orange"
+        app:boxStrokeColor="@color/box_stroke_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upper_text_view"
-        android:layout_marginTop="4dp"
-         >
+        android:layout_marginTop="4dp" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username_edit_text"
@@ -40,8 +40,7 @@
             android:textSize="16sp"
             android:fontFamily="@font/anonymous_pro_bold"
             android:hint="@string/hint_login"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/brown" />
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -75,9 +74,7 @@
         android:id="@+id/login_button"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:backgroundTint="@color/orange"
         android:fontFamily="@font/anonymous_pro_bold"
-        android:textColor="@color/white"
         android:textSize="30sp"
         app:cornerRadius="10dp"
         android:text="@string/login_button_text"
