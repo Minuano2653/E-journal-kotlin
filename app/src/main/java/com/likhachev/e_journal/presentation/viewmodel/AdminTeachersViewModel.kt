@@ -50,15 +50,15 @@ class AdminTeachersViewModel @Inject constructor(
         loadInitialData()
     }
 
-    private fun loadInitialData() {
+    fun loadInitialData() {
         viewModelScope.launch {
             _uiState.value = AdminTeachersUiState.Loading
             try {
-                val groupsDeferred = async { getAllGroupsUseCase() }
-                val subjectsDeferred = async { getAllSubjectsUseCase() }
+                val groupsDeferred = getAllGroupsUseCase()
+                val subjectsDeferred = getAllSubjectsUseCase()
 
-                _groups = groupsDeferred.await()
-                _subjects = subjectsDeferred.await()
+                _groups = groupsDeferred
+                _subjects = subjectsDeferred
 
                 _uiState.value = AdminTeachersUiState.DataLoaded(_groups, _subjects)
             } catch (e: HttpException) {

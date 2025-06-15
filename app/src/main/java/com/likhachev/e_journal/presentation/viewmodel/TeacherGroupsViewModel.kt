@@ -43,7 +43,6 @@ class TeacherGroupsViewModel @Inject constructor(
     private val _isSearchFocused = MutableStateFlow(false)
     val isSearchFocused: StateFlow<Boolean> = _isSearchFocused
 
-    // Храним все загруженные группы
     private var allGroups: List<TeacherGroupDto> = emptyList()
 
     init {

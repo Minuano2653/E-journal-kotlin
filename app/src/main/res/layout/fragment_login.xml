@@ -27,7 +27,6 @@
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
-        app:boxStrokeColor="@color/box_stroke_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upper_text_view"
@@ -47,7 +46,6 @@
         android:id="@+id/password_edit_text_layout"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        app:boxStrokeColor="@color/light_orange"
         app:endIconTint="@color/light_orange"
         android:layout_marginTop="20dp"
         app:boxCornerRadiusTopStart="12dp"
@@ -63,7 +61,6 @@
             android:id="@+id/password_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColorHint="@color/brown"
             android:textSize="16sp"
             android:hint="@string/hint_password"
             android:fontFamily="@font/anonymous_pro_bold"
@@ -84,4 +81,14 @@
         app:layout_constraintTop_toBottomOf="@id/password_edit_text_layout"
         />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="@id/login_button"
+        app:layout_constraintBottom_toBottomOf="@id/login_button"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintEnd_toEndOf="@id/login_button"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

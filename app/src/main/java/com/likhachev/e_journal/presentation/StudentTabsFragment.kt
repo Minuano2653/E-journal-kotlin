@@ -16,6 +16,7 @@ import com.likhachev.e_journal.databinding.FragmentStudentTabsBinding
 import com.likhachev.e_journal.presentation.viewmodel.StudentTabsViewModel
 import com.likhachev.e_journal.utils.DateChangeListener
 import com.likhachev.e_journal.utils.SessionManager
+import com.likhachev.e_journal.utils.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -27,6 +28,7 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
     private lateinit var navController: NavController
 
     @Inject lateinit var sessionManager: SessionManager
+    @Inject lateinit var themeManager: ThemeManager
 
     private val viewModel: StudentTabsViewModel by viewModels()
 
@@ -75,8 +77,7 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_change_theme -> {
-                    // TODO: Реализовать смену темы
-                    // Например, можно открыть диалог выбора темы или переключить между светлой/темной
+                    showThemeSelectionDialog()
                     true
                 }
                 R.id.menu_logout -> {
@@ -88,6 +89,14 @@ class StudentTabsFragment: Fragment(), DateChangeListener {
         }
 
         popupMenu.show()
+    }
+
+    private fun showThemeSelectionDialog() {
+        val dialog = ThemeSelectionDialog.newInstance() {
+            // Коллбек вызывается после выбора темы
+            // Можно добавить дополнительную логику, если необходимо
+        }
+        dialog.show(parentFragmentManager, ThemeSelectionDialog.TAG)
     }
 
     private fun logout() {

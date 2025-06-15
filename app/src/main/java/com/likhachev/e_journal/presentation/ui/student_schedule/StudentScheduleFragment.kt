@@ -112,14 +112,20 @@ class StudentScheduleFragment: Fragment() {
                             binding.progressBar.visibility = View.VISIBLE
                             binding.recyclerView.visibility = View.GONE
                             binding.notFoundLayout.visibility = View.GONE
+                            binding.emptyScheduleTextView.visibility = View.GONE
                         }
                         is ScheduleUiState.Success -> {
-                            binding.progressBar.visibility = View.GONE
-                            binding.recyclerView.visibility = View.VISIBLE
-                            binding.notFoundLayout.visibility = View.GONE
+                            if (state.lessons.isNotEmpty()) {
+                                binding.recyclerView.visibility = View.VISIBLE
+                                binding.notFoundLayout.visibility = View.GONE
 
-                            val studentLessons = mapLessonsToStudentLessons(state.lessons)
-                            adapter.submitList(studentLessons)
+                                val studentLessons = mapLessonsToStudentLessons(state.lessons)
+                                adapter.submitList(studentLessons)
+                            } else {
+                                binding.progressBar.visibility = View.GONE
+                                binding.emptyScheduleTextView.visibility = View.VISIBLE
+                            }
+                            binding.progressBar.visibility = View.GONE
                         }
                         is ScheduleUiState.Error -> {
                             binding.progressBar.visibility = View.GONE

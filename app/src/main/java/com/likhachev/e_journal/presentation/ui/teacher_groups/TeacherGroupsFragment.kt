@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.likhachev.e_journal.R
 import com.likhachev.e_journal.data.model.TeacherGroupDto
 import com.likhachev.e_journal.databinding.FragmentTeacherGroupsBinding
 import com.likhachev.e_journal.domain.model.TeacherGroup
@@ -93,7 +95,17 @@ class TeacherGroupsFragment : Fragment() {
 
         binding.searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
             viewModel.onSearchFocusChanged(hasFocus)
+            updateSearchViewBackground(hasFocus)
         }
+    }
+
+    private fun updateSearchViewBackground(hasFocus: Boolean) {
+        val backgroundRes = if (hasFocus) {
+            R.drawable.bg_search_view_focused
+        } else {
+            R.drawable.bg_search_view_unfocused
+        }
+        binding.searchView.background = ContextCompat.getDrawable(requireContext(), backgroundRes)
     }
 
     private fun setupButtons() {

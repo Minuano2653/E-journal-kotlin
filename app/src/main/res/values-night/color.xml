@@ -6,4 +6,23 @@
     <color name="background_color">#121212</color>
     <color name="title_text_color">#D7C3B7</color>
     <color name="box_stroke_color">#FFE0C1</color>
+
+    <color name="card_background_color">#212226</color>
+    <color name="card_stroke_color">@color/title_text_color</color>
+
+    <color name="fab_background_tint_color">@color/title_text_color</color>
+
+    <color name="selected_bottom_icon_color">@color/colorPrimary</color>
+    <color name="unselected_bottom_icon_color">@color/title_text_color</color>
+
+    <color name="update_button_background_tint_color">@color/title_text_color</color>
+
+    <color name="spinner_background_color">@color/colorPrimary</color>
+    <color name="spinner_text_color">@color/colorOnPrimary</color>
+
+    <color name="search_view_background">@color/card_background_color</color>
+    <color name="search_view_hint">#96929A</color>
+
+    <color name="colorPrimary">#F7943C</color>
+    <color name="colorOnPrimary">#FFFFFFFF</color>
 </resources>

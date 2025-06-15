@@ -128,8 +128,8 @@ class StudentPerformanceFragment: Fragment() {
         }
 
         val dataSet = BarDataSet(entries, "Средний балл").apply {
-            color = resources.getColor(R.color.orange, null)
-            valueTextColor = resources.getColor(R.color.brown, null)
+            color = resources.getColor(R.color.colorPrimary, null)
+            valueTextColor = resources.getColor(R.color.title_text_color, null)
             valueTextSize = 12f
         }
 
@@ -147,11 +147,11 @@ class StudentPerformanceFragment: Fragment() {
             xAxis.position = XAxis.XAxisPosition.BOTTOM
             xAxis.granularity = 1f
             xAxis.setDrawGridLines(false)
-            xAxis.textColor = resources.getColor(R.color.brown, null)
+            xAxis.textColor = resources.getColor(R.color.title_text_color, null)
 
             axisLeft.axisMinimum = 2f
             axisLeft.axisMaximum = 5f
-            axisLeft.textColor = resources.getColor(R.color.brown, null)
+            axisLeft.textColor = resources.getColor(R.color.title_text_color, null)
 
             axisRight.isEnabled = false
 
@@ -169,11 +169,11 @@ class StudentPerformanceFragment: Fragment() {
 
         val dataSet = BarDataSet(entries, "Посещаемость").apply {
             colors = listOf(
-                resources.getColor(R.color.orange, null),
-                resources.getColor(R.color.orange, null),
-                resources.getColor(R.color.orange, null)
+                resources.getColor(R.color.colorPrimary, null),
+                resources.getColor(R.color.colorPrimary, null),
+                resources.getColor(R.color.colorPrimary, null)
             )
-            valueTextColor = resources.getColor(R.color.brown, null)
+            valueTextColor = resources.getColor(R.color.title_text_color, null)
             valueTextSize = 12f
         }
 
@@ -191,10 +191,10 @@ class StudentPerformanceFragment: Fragment() {
             xAxis.position = XAxis.XAxisPosition.BOTTOM
             xAxis.granularity = 1f
             xAxis.setDrawGridLines(false)
-            xAxis.textColor = resources.getColor(R.color.brown, null)
+            xAxis.textColor = resources.getColor(R.color.title_text_color, null)
 
             axisLeft.axisMinimum = 0f
-            axisLeft.textColor = resources.getColor(R.color.brown, null)
+            axisLeft.textColor = resources.getColor(R.color.title_text_color, null)
 
             axisRight.isEnabled = false
 

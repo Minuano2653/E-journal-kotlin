@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import java.net.ConnectException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,6 +46,7 @@ class AdminStudentsViewModel @Inject constructor(
     }
 
     fun loadGroups() {
+        Log.d("ER", "LOAD_GROUPS")
         viewModelScope.launch {
             _uiState.value = AdminStudentsUiState.Loading
             try {
@@ -66,7 +68,6 @@ class AdminStudentsViewModel @Inject constructor(
                 val message = "Ошибка: ${e.message}"
                 _uiState.value = AdminStudentsUiState.Error(message)
                 _errorEvent.emit(Event(message))
-                Log.d("RRRRR", e.message.toString())
             }
         }
     }

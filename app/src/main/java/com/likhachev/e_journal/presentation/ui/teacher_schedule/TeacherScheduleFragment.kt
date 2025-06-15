@@ -136,13 +136,17 @@ class TeacherScheduleFragment : Fragment() {
                             binding.progressBar.visibility = View.VISIBLE
                             binding.recyclerView.visibility = View.GONE
                             binding.notFoundLayout.visibility = View.GONE
+                            binding.emptyScheduleTextView.visibility = View.GONE
                         }
                         is TeacherScheduleUiState.Success -> {
+                            if (state.lessons.isNotEmpty()) {
+                                binding.recyclerView.visibility = View.VISIBLE
+                                binding.notFoundLayout.visibility = View.GONE
+                                adapter.submitList(state.lessons)
+                            } else {
+                                binding.emptyScheduleTextView.visibility = View.VISIBLE
+                            }
                             binding.progressBar.visibility = View.GONE
-                            binding.recyclerView.visibility = View.VISIBLE
-                            binding.notFoundLayout.visibility = View.GONE
-
-                            adapter.submitList(state.lessons)
                         }
                         is TeacherScheduleUiState.Error -> {
                             binding.progressBar.visibility = View.GONE
