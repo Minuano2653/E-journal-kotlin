@@ -15,6 +15,7 @@ import com.likhachev.e_journal.R
 import com.likhachev.e_journal.databinding.FragmentAdminTabsBinding
 import com.likhachev.e_journal.presentation.viewmodel.AdminTabsViewModel
 import com.likhachev.e_journal.utils.SessionManager
+import com.likhachev.e_journal.utils.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -26,6 +27,7 @@ class AdminTabsFragment: Fragment() {
     private lateinit var navController: NavController
 
     @Inject lateinit var sessionManager: SessionManager
+    @Inject lateinit var themeManager: ThemeManager
 
     private val viewModel: AdminTabsViewModel by viewModels()
 
@@ -80,8 +82,7 @@ class AdminTabsFragment: Fragment() {
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_change_theme -> {
-                    // TODO: Реализовать смену темы
-                    // Например, можно открыть диалог выбора темы или переключить между светлой/темной
+                    showThemeSelectionDialog()
                     true
                 }
                 R.id.menu_logout -> {
@@ -95,6 +96,14 @@ class AdminTabsFragment: Fragment() {
         popupMenu.show()
     }
 
+    private fun showThemeSelectionDialog() {
+        val dialog = ThemeSelectionDialog.newInstance {
+            // Коллбек вызывается после выбора темы
+            // Можно добавить дополнительную логику, если необходимо
+        }
+        dialog.show(parentFragmentManager, ThemeSelectionDialog.TAG)
+    }
+
     private fun logout() {
         sessionManager.clearSession()
         findNavController().navigate(R.id.action_adminTabsFragment_to_loginFragment)
@@ -104,5 +113,4 @@ class AdminTabsFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

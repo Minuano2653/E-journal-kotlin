@@ -22,7 +22,7 @@
             android:fontFamily="@font/anonymous_pro_bold"
             android:textSize="22sp"
             android:text="@string/homework_group_text"
-            android:textColor="@color/brown"
+            android:textColor="@color/title_text_color"
             tools:text="Класс: 11-Б" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:text="@string/homework_date_text"
             android:fontFamily="@font/anonymous_pro_bold"
             android:textSize="20sp"
-            android:textColor="@color/brown"
+            android:textColor="@color/title_text_color"
             tools:text="Домашнее задание на 12.05.2025" />
 
     </LinearLayout>
@@ -46,7 +46,6 @@
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
         app:hintEnabled="false"
-        app:boxStrokeColor="@color/orange"
         app:layout_constraintTop_toBottomOf="@id/homework_title_layout"
         android:layout_marginTop="8dp">
 
@@ -83,7 +82,7 @@
         android:textSize="16sp"
         android:clickable="true"
         android:background="?attr/selectableItemBackground"
-        android:textColor="@color/orange"
+        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/anonymous_pro_regular"
         app:layout_constraintTop_toBottomOf="@id/homework_edit_text_layout"
         app:layout_constraintEnd_toEndOf="@id/homework_edit_text_layout" />
@@ -99,7 +98,7 @@
         android:background="?attr/selectableItemBackground"
         android:fontFamily="@font/anonymous_pro_regular"
         android:layout_marginEnd="36dp"
-        android:textColor="@color/orange"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="@id/save_button"
         app:layout_constraintBottom_toBottomOf="@id/save_button"
         app:layout_constraintEnd_toStartOf="@id/save_button"

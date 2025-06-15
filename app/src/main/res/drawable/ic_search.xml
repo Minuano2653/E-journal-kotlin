@@ -1,14 +1,14 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
+    android:height="22dp"
     android:viewportHeight="29"
     android:viewportWidth="29"
-    android:width="24dp">
+    android:width="22dp">
 
     <group>
         <clip-path android:pathData="M0,0h29v29h-29z"/>
 
         <!-- Инвертированный путь -->
-        <path android:fillColor="#F28444"
+        <path android:fillColor="@color/colorPrimary"
             android:pathData="M13.079,0C20.29,0 26.157,5.867 26.157,13.078C26.157,15.634 25.419,18.02 23.25,20.037L28.249,24.039C29.384,25.174 29.384,27.014 28.249,28.149C27.115,29.284 25.175,29.284 24.04,28.149L20.038,24.147C18.021,25.419 15.634,26.157 13.079,26.157C5.867,26.157 0,20.29 0,13.078C0,5.867 5.867,0 13.079,0ZM13.079,23.25C18.687,23.25 23.25,18.687 23.25,13.078C23.25,7.469 18.687,2.906 13.079,2.906C7.47,2.906 2.907,7.469 2.907,13.078C2.907,18.687 7.47,23.25 13.079,23.25Z"/>
     </group>
 </vector>

@@ -56,7 +56,21 @@ class LoginFragment: Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.loginState.collect { state ->
-                    binding.loginButton.isEnabled = state !is LoginUiState.Loading
+                    when(state) {
+                        is LoginUiState.Loading -> {
+                            binding.loginButton.isEnabled = false
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        is LoginUiState.Success -> {
+                            binding.loginButton.isEnabled = true
+                            binding.progressBar.visibility = View.GONE
+                        }
+                        is LoginUiState.Error -> {
+                            binding.loginButton.isEnabled = true
+                            binding.progressBar.visibility = View.GONE
+                        }
+                        is LoginUiState.Idle -> {Unit}
+                    }
                 }
             }
         }

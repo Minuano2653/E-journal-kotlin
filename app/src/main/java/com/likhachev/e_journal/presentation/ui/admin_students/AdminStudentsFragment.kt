@@ -42,19 +42,28 @@ class AdminStudentsFragment : Fragment() {
         setupClickListeners()
         observeViewModel()
         setupGroupSelection()
+        setupSwipeRefresh()
     }
 
+    private fun setupSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.loadGroups()
+        }
+
+        binding.swipeRefreshLayout.setColorSchemeResources(
+            R.color.colorPrimary,
+        )
+    }
+
+
     private fun setupGroupSelection() {
-        // Делаем поле неактивным для ввода с клавиатуры
         binding.groupEditText.isFocusable = false
         binding.groupEditText.isClickable = true
 
-        // Устанавливаем обработчик клика на весь layout
         binding.groupEditTextLayout.setOnClickListener {
             showGroupSelectionDialog()
         }
 
-        // Также на само поле для удобства
         binding.groupEditText.setOnClickListener {
             showGroupSelectionDialog()
         }
@@ -76,7 +85,7 @@ class AdminStudentsFragment : Fragment() {
             -1
         }
 
-        AlertDialog.Builder(requireContext())
+        AlertDialog.Builder(requireContext(), R.style.CustomDatePickerDialogTheme)
             .setTitle("Выберите группу")
             .setSingleChoiceItems(groupNames, currentSelection) { dialog, which ->
                 val selectedGroup = groups[which]
@@ -118,13 +127,19 @@ class AdminStudentsFragment : Fragment() {
                         }
                         is AdminStudentsUiState.GroupsLoaded -> {
                             hideLoading()
+                            binding.swipeRefreshLayout.isRefreshing = false
+
                         }
                         is AdminStudentsUiState.Success -> {
                             hideLoading()
                             clearFields()
+                            binding.swipeRefreshLayout.isRefreshing = false
+
                         }
                         is AdminStudentsUiState.Error -> {
                             hideLoading()
+                            binding.swipeRefreshLayout.isRefreshing = false
+
                         }
                     }
                 }
@@ -153,7 +168,6 @@ class AdminStudentsFragment : Fragment() {
     }
 
     private fun showLoading() {
-        // Показываем загрузку групп
         binding.groupEditTextLayout.isEnabled = false
         binding.saveButton.isEnabled = false
     }

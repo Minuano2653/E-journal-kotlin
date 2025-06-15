@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Ejournal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/orange</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="android:windowBackground">@color/white</item>
 
         <!-- Цвет статус-бара -->
@@ -15,7 +15,8 @@
 
     <style name="CustomSearchViewTheme" parent="Widget.AppCompat.SearchView">
         <item name="android:fontFamily">@font/anonymous_pro_regular</item>
-        <item name="android:textColorHint">@color/brown</item>
+        <!--<item name="android:textColorHint">@color/brown</item>
+        <item name="colorOnPrimary">@color/colorPrimary</item>-->
         <item name="searchIcon">@null</item>
     </style>
 
@@ -30,6 +31,9 @@
     <style name="CustomDatePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
         <!-- Цвет акцента (например, кнопок) -->
         <item name="colorAccent">@color/orange</item>
+<!--
+        <item name="android:background">@color/background_color</item>
+-->
         <item name="fontFamily">@font/anonymous_pro_regular</item>
     </style>
 

@@ -17,7 +17,7 @@ class TeacherTabsViewModel @Inject constructor() : ViewModel() {
 
     fun setTitle(title: String) {
         _title.value = title
-        _subtitle.value = "" // Очищаем подзаголовок при смене основного заголовка
+        _subtitle.value = ""
     }
 
     fun setJournalTitle(groupName: String) {

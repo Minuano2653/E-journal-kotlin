@@ -29,6 +29,8 @@
     <string name="back_button_description">Назад</string>
     <string name="change_date_description">Изменить дату</string>
     <string name="save_button_text">Сохранить</string>
+    <string name="cleat_history_tv">Очистить</string>
+    <string name="history_title_tv">ИСТОРИЯ</string>
 
     <string-array name="subjects">
         <item>Математика</item>

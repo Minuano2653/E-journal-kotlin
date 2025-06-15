@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Активный (выбранный) -->
-    <item android:color="@color/orange" android:state_checked="true" />
+    <item android:color="@color/selected_bottom_icon_color" android:state_checked="true" />
     <!-- Неактивный -->
-    <item android:color="@android:color/darker_gray" />
+    <item android:color="@color/unselected_bottom_icon_color" />
 </selector>

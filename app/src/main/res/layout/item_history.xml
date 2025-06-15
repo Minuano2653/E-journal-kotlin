@@ -6,7 +6,7 @@
     android:text="Элемент списка"
     android:padding="6dp"
     android:textSize="16sp"
-    android:textColor="@color/brown"
+    android:textColor="@color/title_text_color"
     android:fontFamily="@font/anonymous_pro_regular"
     android:textStyle="bold"
     android:background="?attr/selectableItemBackground"

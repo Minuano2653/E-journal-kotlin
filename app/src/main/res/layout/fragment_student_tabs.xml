@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background_color"
     tools:context="com.likhachev.e_journal.presentation.StudentTabsFragment">
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anonymous_pro_bold"
-            android:textColor="@color/brown"
+            android:textColor="@color/title_text_color"
             android:textSize="26sp"
             android:text="Расписание на"
             android:textStyle="bold" />
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anonymous_pro_bold"
-            android:textColor="@color/orange"
+            android:textColor="@color/colorPrimary"
             android:textSize="26sp"
             android:textStyle="bold"
             android:text="26.02.2025" />
@@ -63,7 +64,7 @@
         android:id="@+id/bottom_nav_view"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="@color/white"
+        android:background="@color/background_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemTextColor="@color/bottom_nav_text_color_selector"
         app:itemIconTint="@color/bottom_nav_icon_color_selector"

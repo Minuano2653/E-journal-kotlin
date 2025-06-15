@@ -43,15 +43,23 @@ class AdminTeachersFragment : Fragment() {
         setupClickListeners()
         observeViewModel()
         setupSelectionFields()
+        setupSwipeRefresh()
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.loadInitialData()
+        }
+
+        binding.swipeRefreshLayout.setColorSchemeResources(
+            R.color.colorPrimary
+        )
     }
 
     private fun setupSelectionFields() {
         // Предмет - single choice
         binding.subjectsEditText.isFocusable = false
-        binding.subjectsEditText.isClickable = true/*
-        binding.subjectsEditTextLayout.setOnClickListener {
-            showSubjectSelectionDialog()
-        }*/
+        binding.subjectsEditText.isClickable = true
         binding.subjectsEditText.setOnClickListener {
             showSubjectSelectionDialog()
         }
@@ -59,9 +67,7 @@ class AdminTeachersFragment : Fragment() {
         // Группы - multi choice
         binding.groupEditText.isFocusable = false
         binding.groupEditText.isClickable = true
-        /*binding.groupEditTextLayout.setOnClickListener {
-            showGroupSelectionDialog()
-        }*/
+
         binding.groupEditText.setOnClickListener {
             showGroupSelectionDialog()
         }
@@ -179,13 +185,16 @@ class AdminTeachersFragment : Fragment() {
                         }
                         is AdminTeachersUiState.DataLoaded -> {
                             hideLoading()
+                            binding.swipeRefreshLayout.isRefreshing = false
                         }
                         is AdminTeachersUiState.Success -> {
                             hideLoading()
                             clearFields()
+                            binding.swipeRefreshLayout.isRefreshing = false
                         }
                         is AdminTeachersUiState.Error -> {
                             hideLoading()
+                            binding.swipeRefreshLayout.isRefreshing = false
                         }
                     }
                 }

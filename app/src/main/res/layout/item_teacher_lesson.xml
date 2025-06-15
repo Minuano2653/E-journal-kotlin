@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:strokeWidth="3dp"
-    app:strokeColor="@color/light_orange"
-    android:backgroundTint="@color/white"
-    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/card_background_color"
+    android:layout_marginVertical="6dp"
+    android:layout_marginHorizontal="12dp"
     >
 
     <LinearLayout
@@ -30,7 +32,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:text="@string/lesson_number_text_view"
-                android:textColor="@color/brown"
+                android:textColor="@color/title_text_color"
                 tools:text="1 УРОК: " />
 
             <TextView
@@ -40,7 +42,7 @@
                 android:fontFamily="@font/anonymous_pro_regular"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/orange"
+                android:textColor="@color/colorPrimary"
                 tools:text="8:00-8:40"/>
         </LinearLayout>
 
@@ -56,7 +58,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:text="@string/class_text_view"
-                android:textColor="@color/brown"
+                android:textColor="@color/title_text_color"
                 tools:text="Класс: " />
 
             <TextView
@@ -66,7 +68,7 @@
                 android:fontFamily="@font/anonymous_pro_regular"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/orange"
+                android:textColor="@color/colorPrimary"
                 tools:text="11-Б"/>
         </LinearLayout>
 
@@ -82,7 +84,7 @@
                 android:textStyle="bold"
                 android:text="@string/subject_text_view"
                 android:textSize="20sp"
-                android:textColor="@color/brown"
+                android:textColor="@color/title_text_color"
                 tools:text="Предмет: " />
 
             <TextView
@@ -92,7 +94,7 @@
                 android:fontFamily="@font/anonymous_pro_regular"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/orange"
+                android:textColor="@color/colorPrimary"
                 tools:text="Информатика"/>
         </LinearLayout>
 
@@ -108,7 +110,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:text="@string/classroom_text_view"
-                android:textColor="@color/brown"
+                android:textColor="@color/title_text_color"
                 />
 
             <TextView
@@ -118,10 +120,10 @@
                 android:fontFamily="@font/anonymous_pro_regular"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/orange"
+                android:textColor="@color/colorPrimary"
                 tools:text="588"/>
         </LinearLayout>
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>
